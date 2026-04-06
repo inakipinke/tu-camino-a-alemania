@@ -186,11 +186,16 @@ function FormPage() {
     try {
       // Store form data in localStorage
       const submissions = JSON.parse(localStorage.getItem('formSubmissions') || '[]');
-      submissions.push({
+      const newSubmission = {
         ...form,
         timestamp: new Date().toISOString()
-      });
+      };
+      submissions.push(newSubmission);
       localStorage.setItem('formSubmissions', JSON.stringify(submissions));
+      
+      // Log to console for verification
+      console.log('✅ Formulario guardado:', newSubmission);
+      console.log('📊 Total submissions:', submissions.length);
       
       setStatus('¡Formulario enviado exitosamente! Nos pondremos en contacto pronto.');
       setForm(initialForm);
@@ -291,6 +296,85 @@ function FormPage() {
   );
 }
 
+function AdminPage() {
+  const [submissions, setSubmissions] = useState([]);
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem('formSubmissions') || '[]');
+    setSubmissions(data);
+  }, []);
+
+  const handleDownload = () => {
+    const dataStr = JSON.stringify(submissions, null, 2);
+    const dataBlob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(dataBlob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `submissions_${new Date().toISOString().split('T')[0]}.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const handleClear = () => {
+    if (window.confirm('¿Estás seguro de que quieres eliminar todos los envíos?')) {
+      localStorage.setItem('formSubmissions', '[]');
+      setSubmissions([]);
+    }
+  };
+
+  return (
+    <div className="page">
+      <Navbar />
+      <main>
+        <section className="card cardR">
+          <h2>📋 Panel de Envíos</h2>
+          <p>Total de registros: <strong>{submissions.length}</strong></p>
+
+          {submissions.length === 0 ? (
+            <p>No hay envíos registrados aún.</p>
+          ) : (
+            <>
+              <div style={{ overflowX: 'auto', marginBottom: '1.5rem' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
+                  <thead>
+                    <tr style={{ borderBottom: '2px solid #333' }}>
+                      <th style={{ padding: '0.5rem', textAlign: 'left' }}>Nombre</th>
+                      <th style={{ padding: '0.5rem', textAlign: 'left' }}>Email</th>
+                      <th style={{ padding: '0.5rem', textAlign: 'left' }}>Teléfono</th>
+                      <th style={{ padding: '0.5rem', textAlign: 'left' }}>Pasaporte</th>
+                      <th style={{ padding: '0.5rem', textAlign: 'left' }}>Fecha de Envío</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {submissions.map((sub, idx) => (
+                      <tr key={idx} style={{ borderBottom: '1px solid #ddd' }}>
+                        <td style={{ padding: '0.5rem' }}>{sub.firstName} {sub.lastName}</td>
+                        <td style={{ padding: '0.5rem' }}>{sub.email}</td>
+                        <td style={{ padding: '0.5rem' }}>{sub.phone}</td>
+                        <td style={{ padding: '0.5rem' }}>{sub.passport}</td>
+                        <td style={{ padding: '0.5rem' }}>{new Date(sub.timestamp).toLocaleString()}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <div style={{ display: 'flex', gap: '1rem' }}>
+                <button onClick={handleDownload} className="primaryBtn">
+                  💾 Descargar JSON
+                </button>
+                <button onClick={handleClear} className="primaryBtn" style={{ backgroundColor: '#d9534f' }}>
+                  🗑️ Limpiar Todo
+                </button>
+              </div>
+            </>
+          )}
+        </section>
+      </main>
+    </div>
+  );
+}
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -299,6 +383,7 @@ export default function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/requirements" element={<RequirementsPage />} />
         <Route path="/form" element={<FormPage />} />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
     </BrowserRouter>
   );

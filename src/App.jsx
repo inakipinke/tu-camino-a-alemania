@@ -470,7 +470,7 @@ function ContactPage() {
                 </p>
               </div>
               <button className="copyBtn" onClick={() => handleCopy('PLACEHOLDER_EMAIL@example.com')} aria-label="Copiar correo electrónico">
-                <span className="copyIcon" />
+                �
               </button>
             </div>
 
@@ -482,7 +482,7 @@ function ContactPage() {
                 </p>
               </div>
               <button className="copyBtn" onClick={() => handleCopy('PLACEHOLDER_PHONE')} aria-label="Copiar teléfono">
-                <span className="copyIcon" />
+                �
               </button>
             </div>
 
@@ -496,7 +496,7 @@ function ContactPage() {
                 </p>
               </div>
               <button className="copyBtn" onClick={() => handleCopy('@PLACEHOLDER_INSTAGRAM')} aria-label="Copiar Instagram">
-                <span className="copyIcon" />
+                �
               </button>
             </div>
           </div>

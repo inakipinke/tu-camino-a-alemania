@@ -229,7 +229,7 @@ body {
 }
 
 .copyBtn {
-  background-color: #f2f7fa;
+  background-color: #7676762c;
   width: 100px;
   height: 36px;
   border: none;
@@ -242,7 +242,7 @@ body {
 }
 
 .copyBtn span:first-child {
-  color: #0e418f;
+  color: #000000;
   position: absolute;
   top: 50%;
   left: 50%;

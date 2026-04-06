@@ -462,7 +462,7 @@ function ContactPage() {
           </p>
 
           <p>
-            Puedes contactarnos de <strong>9:00 AM a 7:00 PM todos los días</strong>
+            Puedes contactarnos de <strong>9:00 AM a 7:00 PM todos los días </strong>
             a través de los siguientes medios:
           </p>
 

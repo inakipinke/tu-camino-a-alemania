@@ -469,8 +469,8 @@ function ContactPage() {
                   <a href="mailto:PLACEHOLDER_EMAIL@example.com">PLACEHOLDER_EMAIL@example.com</a>
                 </p>
               </div>
-              <button className="copyBtn" onClick={() => handleCopy('PLACEHOLDER_EMAIL@example.com')}>
-                Copiar
+              <button className="copyBtn" onClick={() => handleCopy('PLACEHOLDER_EMAIL@example.com')} aria-label="Copiar correo electrónico">
+                📋
               </button>
             </div>
 
@@ -481,8 +481,8 @@ function ContactPage() {
                   <a href="tel:PLACEHOLDER_PHONE">PLACEHOLDER_PHONE</a>
                 </p>
               </div>
-              <button className="copyBtn" onClick={() => handleCopy('PLACEHOLDER_PHONE')}>
-                Copiar
+              <button className="copyBtn" onClick={() => handleCopy('PLACEHOLDER_PHONE')} aria-label="Copiar teléfono">
+                📋
               </button>
             </div>
 
@@ -495,8 +495,8 @@ function ContactPage() {
                   </a>
                 </p>
               </div>
-              <button className="copyBtn" onClick={() => handleCopy('@PLACEHOLDER_INSTAGRAM')}>
-                Copiar
+              <button className="copyBtn" onClick={() => handleCopy('@PLACEHOLDER_INSTAGRAM')} aria-label="Copiar Instagram">
+                📋
               </button>
             </div>
           </div>

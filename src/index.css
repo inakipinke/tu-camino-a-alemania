@@ -134,6 +134,7 @@ body {
   top: 100%;
   left: 0;
   right: 0;
+  margin-right: 0;
   background: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(10px);
   flex-direction: column;

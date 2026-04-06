@@ -501,9 +501,11 @@ label {
   }
 
   .contact-item button.copyBtn {
-    width: 100%;
-    max-width: 220px;
+    width: auto;
+    min-width: 90px;
+    max-width: 120px;
+    padding: 0 1rem;
     margin-top: 1rem;
-    align-self: flex-start;
+    align-self: center;
   }
 }

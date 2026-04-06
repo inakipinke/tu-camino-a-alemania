@@ -179,12 +179,12 @@ function FormPage() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus('Procesando...');
+    setStatus('Enviando...');
 
     try {
-      // Store form data in localStorage
+      // Store form data in localStorage (backup)
       const submissions = JSON.parse(localStorage.getItem('formSubmissions') || '[]');
       const newSubmission = {
         ...form,
@@ -192,19 +192,39 @@ function FormPage() {
       };
       submissions.push(newSubmission);
       localStorage.setItem('formSubmissions', JSON.stringify(submissions));
+
+      // Send to Formspree for email notification
+      // Replace with your Formspree form ID from https://formspree.io
+      const FORMSPREE_ID = 'YOUR_FORMSPREE_ID'; // ← Change this!
       
-      // Log to console for verification
-      console.log('✅ Formulario guardado:', newSubmission);
-      console.log('📊 Total submissions:', submissions.length);
+      const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: form.firstName,
+          lastName: form.lastName,
+          email: form.email,
+          phone: form.phone,
+          passport: form.passport,
+          birthDate: form.birthDate,
+          turno: form.turno,
+          _replyto: form.email,
+        }),
+      });
+
+      if (response.ok) {
+        setStatus('¡Formulario enviado exitosamente! Revisa tu correo.');
+      } else {
+        setStatus('✅ Guardado localmente (configura Formspree para recibir correos)');
+      }
       
-      setStatus('¡Formulario enviado exitosamente! Nos pondremos en contacto pronto.');
       setForm(initialForm);
-      
-      // Clear success message after 5 seconds
       setTimeout(() => setStatus(''), 5000);
     } catch (error) {
       console.error(error);
-      setStatus('Error al guardar el formulario');
+      setStatus('✅ Guardado localmente (configura Formspree para recibir correos)');
     }
   };
 

@@ -229,49 +229,56 @@ body {
 }
 
 .copyBtn {
-  background: #666;
-  color: white;
+  background-color: #f2f7fa;
+  width: 100px;
+  height: 36px;
   border: none;
   border-radius: 8px;
-  padding: 0.8rem 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.copyBtn:hover {
-  background: #444;
-}
-
-.copyIcon {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
+  overflow: hidden;
+  transition: all 700ms ease;
   position: relative;
 }
 
-.copyIcon::before,
-.copyIcon::after {
-  content: '';
+.copyBtn span:first-child {
+  color: #0e418f;
   position: absolute;
-  width: 12px;
-  height: 14px;
-  border: 2px solid white;
-  border-radius: 3px;
-  background: rgba(255, 255, 255, 0.08);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 500ms ease;
 }
 
-.copyIcon::before {
-  top: 0;
-  left: 2px;
+.copyBtn span:last-child {
+  position: absolute;
+  color: #b5ccf3;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  transition: all 500ms ease;
+  font-size: 1.2rem;
 }
 
-.copyIcon::after {
-  top: 4px;
-  left: 0;
+.copyBtn:active {
+  background-color: #0e418f;
+  width: 120px;
+  height: 40px;
+  transition-delay: 50ms;
+  transition-duration: 500ms;
+}
+
+.copyBtn:active span:first-child {
+  color: #f2f7fa;
+  opacity: 0;
+  transform: translate(-50%, -150%);
+}
+
+.copyBtn:active span:last-child {
+  opacity: 1;
+  color: #b5ccf3;
+  transform: translate(-50%, -50%);
 }
 
 .copyStatus {

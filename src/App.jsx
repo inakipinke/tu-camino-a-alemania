@@ -182,18 +182,18 @@ function RequirementsPage() {
           <h2>Requisitos</h2>
 
           <ul>
-            <li>Contar con pasaporte argentino válido y en vigencia al momento de la solicitud.</li>
-            <li>Tener entre 18 y 30 años inclusive al aplicar (si ya cumpliste 31, no podés iniciar el trámite, aunque sí ingresar si la visa fue otorgada antes).</li>
+            <li>Contar con un pasaporte argentino válido y vigente al momento de la solicitud.</li>
+            <li>Tener entre 18 y 30 años inclusive al momento de aplicar (si ya cumpliste 31 años, no podrás iniciar el trámite, aunque sí podrás ingresar si la visa fue otorgada antes).</li>
             <li>No haber utilizado anteriormente esta visa en Alemania, ya que solo se puede obtener una vez en la vida.</li>
-            <li>Demostrar que disponés de fondos suficientes para cubrir tus gastos iniciales durante la estadía.</li>
+            <li>Demostrar que se dispone de fondos suficientes para cubrir los gastos iniciales durante la estancia.</li>
             <li>Presentar un pasaje de ida a Alemania (requisito obligatorio).</li>
-            <li>Contar con un pasaje de regreso o acreditar dinero adicional para poder comprarlo.</li>
-            <li>No está permitido viajar con personas a cargo que no tengan su propia visa; cada acompañante debe gestionar su permiso de residencia por separado.</li>
-            <li>Disponer de un seguro médico y de accidentes válido durante toda la estadía, con una cobertura mínima de 30.000 euros, incluyendo repatriación.</li>
+            <li>Contar con un pasaje de regreso o acreditar fondos adicionales para poder adquirirlo.</li>
+            <li>No está permitido viajar con personas a cargo que no cuenten con su propia visa; cada acompañante debe gestionar su permiso de residencia por separado.</li>
+            <li>Disponer de un seguro médico y de accidentes válido durante toda la estancia, con una cobertura mínima de 30.000 euros, incluyendo repatriación.</li>
             <li>Redactar una carta de motivación explicando el propósito del viaje.</li>
             <li>Presentar un currículum vitae actualizado.</li>
             <li>Aportar un certificado de antecedentes penales.</li>
-            <li>Completar una declaración jurada sobre domicilio en Alemania, sistema de aportes y posibles viajes dentro del espacio Schengen.</li>
+            <li>Completar una declaración jurada sobre el domicilio en Alemania, el sistema de aportes y posibles viajes dentro del espacio Schengen.</li>
             <li>Presentar un comprobante de alojamiento o, en su defecto, una carta de invitación.</li>
             <li>El viaje debe declararse como de carácter principalmente turístico, aunque durante la vigencia de la visa se permite trabajar sin restricciones dentro del período autorizado.</li>
           </ul>

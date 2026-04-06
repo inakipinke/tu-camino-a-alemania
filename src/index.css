@@ -175,7 +175,7 @@ body {
 .navLink:hover {
   color: var(--g-gold);
   background: rgba(255, 204, 0, 0.1);
-  transform: scale(.3);
+  transform: scale(1.05);
 }
 
 .navLinkPrimary:hover {

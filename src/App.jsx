@@ -125,7 +125,7 @@ function AboutPage() {
           <p>
             <strong>Tu camino a Alemania</strong> nace con el objetivo de hacer que los procesos migratorios
             sean más simples, claros y accesibles. Sabemos que cada caso es distinto, por eso ofrecemos
-            asesoramiento personalizado adaptado a la situación de cada cliente. Trabajamos con todas las embajadas alemanas de latinoamerica.
+            asesoramiento personalizado adaptado a la situación de cada cliente. Trabajamos con todas las embajadas alemanas de latinoamerica. 📲 Seguinos en Instagram como <a href="https://www.instagram.com/camino_alemania2026/?hl=es" target="_blank" rel="noopener noreferrer">@camino_alemania2026</a> para tips, novedades y turnos disponibles.
           </p>
 
 

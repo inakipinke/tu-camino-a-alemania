@@ -82,7 +82,7 @@ body {
   gap: 1.5rem;
   align-items: center;
   justify-content: flex-end;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 /* Mobile Menu Button (Hamburger) */
@@ -175,6 +175,7 @@ body {
 .navLink:hover {
   color: var(--g-gold);
   background: rgba(255, 204, 0, 0.1);
+  transform: scale(.3);
 }
 
 .navLinkPrimary:hover {

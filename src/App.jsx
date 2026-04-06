@@ -252,16 +252,16 @@ function FormPage() {
       console.log('Formspree response:', await response.text());
 
       if (response.ok) {
-        setStatus('¡Formulario enviado exitosamente! Revisa tu correo.');
+        setStatus('¡Formulario enviado exitosamente! Te vamos a contactar pronto.');
       } else {
-        setStatus('✅ Guardado localmente (configura Formspree para recibir correos)');
+        setStatus('Error al enviar, contactanos directamente a nuestro correo);
       }
       
       setForm(initialForm);
       setTimeout(() => setStatus(''), 5000);
     } catch (error) {
       console.error(error);
-      setStatus('✅ Guardado localmente (configura Formspree para recibir correos)');
+      setStatus('Error al enviar, contactanos directamente a nuestro correo');
     }
   };
 

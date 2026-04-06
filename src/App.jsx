@@ -49,6 +49,7 @@ function Navbar() {
           <Link to="/" className="navLink">Inicio</Link>
           <Link to="/about" className="navLink">Servicios</Link>
           <Link to="/requirements" className="navLink">Requisitos</Link>
+          <Link to="/contact" className="navLink">Contáctanos</Link>
           <Link to="/form" className="navLink navLinkPrimary">Regístrate</Link>
         </div>
 
@@ -68,6 +69,7 @@ function Navbar() {
           <Link to="/" className="navLink" onClick={closeMobileMenu}>Inicio</Link>
           <Link to="/about" className="navLink" onClick={closeMobileMenu}>Servicios</Link>
           <Link to="/requirements" className="navLink" onClick={closeMobileMenu}>Requisitos</Link>
+          <Link to="/contact" className="navLink" onClick={closeMobileMenu}>Contáctanos</Link>
           <Link to="/form" className="navLink navLinkPrimary" onClick={closeMobileMenu}>Regístrate</Link>
         </div>
       </div>
@@ -82,7 +84,7 @@ function HomePage() {
 
       <main>
         <section className="card">
-          <h2>Herzlich Willkommen! LOLO LOLO</h2>
+          <h2>Willkommen!</h2>
 
           <p>
             En <strong>Tu camino a Alemania</strong> te acompañamos en cada paso de tu proceso migratorio.
@@ -427,6 +429,62 @@ function AdminPage() {
   );
 }
 
+function ContactPage() {
+  return (
+    <div className="page">
+      <Navbar />
+
+      <main>
+        <section className="card cardR">
+          <h2>Contactanos</h2>
+
+          <p>
+            <strong>¿Necesitas ayuda?</strong> Estamos aquí para ti.
+          </p>
+
+          <p>
+            Puedes contactarnos de <strong>9:00 AM a 7:00 PM todos los días</strong> 
+            a través de los siguientes medios:
+          </p>
+
+          <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div style={{ padding: '1.5rem', backgroundColor: 'rgba(221, 0, 0, 0.08)', borderRadius: '8px', borderLeft: '4px solid var(--g-red)' }}>
+              <h3 style={{ margin: '0 0 0.5rem 0', color: 'var(--g-red)' }}>📧 Correo Electrónico</h3>
+              <p style={{ margin: 0 }}>
+                <a href="mailto:PLACEHOLDER_EMAIL@example.com" style={{ color: 'var(--g-red)', textDecoration: 'none' }}>
+                  PLACEHOLDER_EMAIL@example.com
+                </a>
+              </p>
+            </div>
+
+            <div style={{ padding: '1.5rem', backgroundColor: 'rgba(0, 150, 136, 0.08)', borderRadius: '8px', borderLeft: '4px solid #009688' }}>
+              <h3 style={{ margin: '0 0 0.5rem 0', color: '#009688' }}>📱 Teléfono</h3>
+              <p style={{ margin: 0 }}>
+                <a href="tel:PLACEHOLDER_PHONE" style={{ color: '#009688', textDecoration: 'none' }}>
+                  PLACEHOLDER_PHONE
+                </a>
+              </p>
+            </div>
+
+            <div style={{ padding: '1.5rem', backgroundColor: 'rgba(63, 81, 181, 0.08)', borderRadius: '8px', borderLeft: '4px solid #3f51b5' }}>
+              <h3 style={{ margin: '0 0 0.5rem 0', color: '#3f51b5' }}>📲 Instagram</h3>
+              <p style={{ margin: 0 }}>
+                <a href="https://instagram.com/PLACEHOLDER_INSTAGRAM" target="_blank" rel="noopener noreferrer" style={{ color: '#3f51b5', textDecoration: 'none' }}>
+                  @PLACEHOLDER_INSTAGRAM
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <p style={{ marginTop: '2rem', fontStyle: 'italic', color: 'var(--text-light)' }}>
+            Nos comprometemos a responder tus consultas en el menor tiempo posible.
+          </p>
+        </section>
+      </main>
+    </div>
+  );
+}
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -434,6 +492,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/requirements" element={<RequirementsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/form" element={<FormPage />} />
         <Route path="/admin" element={<AdminPage />} />
       </Routes>

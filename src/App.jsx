@@ -430,12 +430,26 @@ function AdminPage() {
 }
 
 function ContactPage() {
+  const [copyStatus, setCopyStatus] = useState('');
+
+  const handleCopy = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopyStatus(`Copiado: ${text}`);
+      setTimeout(() => setCopyStatus(''), 3000);
+    } catch (error) {
+      console.error('Error copying text:', error);
+      setCopyStatus('No se pudo copiar. Intenta nuevamente.');
+      setTimeout(() => setCopyStatus(''), 3000);
+    }
+  };
+
   return (
     <div className="page">
       <Navbar />
 
       <main>
-        <section className="card cardR">
+        <section className="card cardR contact-card">
           <h2>Contactanos</h2>
 
           <p>
@@ -443,38 +457,51 @@ function ContactPage() {
           </p>
 
           <p>
-            Puedes contactarnos de <strong>9:00 AM a 7:00 PM todos los días</strong> 
+            Puedes contactarnos de <strong>9:00 AM a 7:00 PM todos los días</strong>
             a través de los siguientes medios:
           </p>
 
-          <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            <div style={{ padding: '1.5rem', backgroundColor: 'rgba(221, 0, 0, 0.08)', borderRadius: '8px', borderLeft: '4px solid var(--g-red)' }}>
-              <h3 style={{ margin: '0 0 0.5rem 0', color: 'var(--g-red)' }}>📧 Correo Electrónico</h3>
-              <p style={{ margin: 0 }}>
-                <a href="mailto:PLACEHOLDER_EMAIL@example.com" style={{ color: 'var(--g-red)', textDecoration: 'none' }}>
-                  PLACEHOLDER_EMAIL@example.com
-                </a>
-              </p>
+          <div className="contact-list">
+            <div className="contact-item">
+              <div>
+                <h3>📧 Correo Electrónico</h3>
+                <p>
+                  <a href="mailto:PLACEHOLDER_EMAIL@example.com">PLACEHOLDER_EMAIL@example.com</a>
+                </p>
+              </div>
+              <button className="copyBtn" onClick={() => handleCopy('PLACEHOLDER_EMAIL@example.com')}>
+                Copiar
+              </button>
             </div>
 
-            <div style={{ padding: '1.5rem', backgroundColor: 'rgba(0, 150, 136, 0.08)', borderRadius: '8px', borderLeft: '4px solid #009688' }}>
-              <h3 style={{ margin: '0 0 0.5rem 0', color: '#009688' }}>📱 Teléfono</h3>
-              <p style={{ margin: 0 }}>
-                <a href="tel:PLACEHOLDER_PHONE" style={{ color: '#009688', textDecoration: 'none' }}>
-                  PLACEHOLDER_PHONE
-                </a>
-              </p>
+            <div className="contact-item">
+              <div>
+                <h3>📱 Teléfono</h3>
+                <p>
+                  <a href="tel:PLACEHOLDER_PHONE">PLACEHOLDER_PHONE</a>
+                </p>
+              </div>
+              <button className="copyBtn" onClick={() => handleCopy('PLACEHOLDER_PHONE')}>
+                Copiar
+              </button>
             </div>
 
-            <div style={{ padding: '1.5rem', backgroundColor: 'rgba(63, 81, 181, 0.08)', borderRadius: '8px', borderLeft: '4px solid #3f51b5' }}>
-              <h3 style={{ margin: '0 0 0.5rem 0', color: '#3f51b5' }}>📲 Instagram</h3>
-              <p style={{ margin: 0 }}>
-                <a href="https://instagram.com/PLACEHOLDER_INSTAGRAM" target="_blank" rel="noopener noreferrer" style={{ color: '#3f51b5', textDecoration: 'none' }}>
-                  @PLACEHOLDER_INSTAGRAM
-                </a>
-              </p>
+            <div className="contact-item">
+              <div>
+                <h3>📲 Instagram</h3>
+                <p>
+                  <a href="https://instagram.com/PLACEHOLDER_INSTAGRAM" target="_blank" rel="noopener noreferrer">
+                    @PLACEHOLDER_INSTAGRAM
+                  </a>
+                </p>
+              </div>
+              <button className="copyBtn" onClick={() => handleCopy('@PLACEHOLDER_INSTAGRAM')}>
+                Copiar
+              </button>
             </div>
           </div>
+
+          {copyStatus && <p className="copyStatus">{copyStatus}</p>}
 
           <p style={{ marginTop: '2rem', fontStyle: 'italic', color: 'var(--text-light)' }}>
             Nos comprometemos a responder tus consultas en el menor tiempo posible.

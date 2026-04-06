@@ -195,6 +195,60 @@ body {
   transform: translateY(-2px);
 }
 
+.contact-list {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: rgba(128, 128, 128, 0.08);
+  border: 1px solid rgba(128, 128, 128, 0.16);
+}
+
+.contact-item h3 {
+  margin: 0 0 0.4rem 0;
+  color: #444;
+}
+
+.contact-item p {
+  margin: 0;
+  color: #555;
+}
+
+.contact-item a {
+  color: #555;
+  text-decoration: none;
+}
+
+.copyBtn {
+  background: #666;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.copyBtn:hover {
+  background: #444;
+}
+
+.copyStatus {
+  margin-top: 1.25rem;
+  color: var(--g-black);
+  font-weight: 600;
+}
+
 /* ================= PAGE ================= */
 
 .page {

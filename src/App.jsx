@@ -14,6 +14,7 @@ const initialForm = {
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -28,17 +29,46 @@ function Navbar() {
     };
   }, []);
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <nav className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navContainer">
-        <Link to="/" className="navLogo">
+        <Link to="/" className="navLogo" onClick={closeMobileMenu}>
           <img src={logo} alt="tu camino" />
         </Link>
-        <div className="navLinks">
+        
+        {/* Desktop Navigation */}
+        <div className="navLinks desktop-nav">
           <Link to="/" className="navLink">Inicio</Link>
           <Link to="/about" className="navLink">Servicios</Link>
           <Link to="/requirements" className="navLink">Requisitos</Link>
           <Link to="/form" className="navLink navLinkPrimary">Regístrate</Link>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button 
+          className={`mobile-menu-btn ${isMobileMenuOpen ? 'open' : ''}`}
+          onClick={toggleMobileMenu}
+          aria-label="Toggle mobile menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        {/* Mobile Navigation */}
+        <div className={`navLinks mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}>
+          <Link to="/" className="navLink" onClick={closeMobileMenu}>Inicio</Link>
+          <Link to="/about" className="navLink" onClick={closeMobileMenu}>Servicios</Link>
+          <Link to="/requirements" className="navLink" onClick={closeMobileMenu}>Requisitos</Link>
+          <Link to="/form" className="navLink navLinkPrimary" onClick={closeMobileMenu}>Regístrate</Link>
         </div>
       </div>
     </nav>

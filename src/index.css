@@ -237,7 +237,7 @@ body {
   font-weight: 600;
   cursor: pointer;
   overflow: hidden;
-  transition: all 700ms ease;
+  transition: all 500ms ease;
   position: relative;
 }
 
@@ -248,6 +248,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   transition: all 500ms ease;
+  white-space: nowrap;
 }
 
 .copyBtn span:last-child {
@@ -259,23 +260,22 @@ body {
   transform: translate(-50%, 100%);
   transition: all 500ms ease;
   font-size: 1.2rem;
+  font-weight: bold;
 }
 
-.copyBtn:active {
+.copyBtn.active {
   background-color: #0e418f;
   width: 120px;
   height: 40px;
-  transition-delay: 50ms;
-  transition-duration: 500ms;
 }
 
-.copyBtn:active span:first-child {
+.copyBtn.active span:first-child {
   color: #f2f7fa;
   opacity: 0;
   transform: translate(-50%, -150%);
 }
 
-.copyBtn:active span:last-child {
+.copyBtn.active span:last-child {
   opacity: 1;
   color: #b5ccf3;
   transform: translate(-50%, -50%);

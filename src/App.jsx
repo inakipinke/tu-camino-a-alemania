@@ -431,12 +431,17 @@ function AdminPage() {
 
 function ContactPage() {
   const [copyStatus, setCopyStatus] = useState('');
+  const [activeButton, setActiveButton] = useState(null);
 
-  const handleCopy = async (text) => {
+  const handleCopy = async (text, buttonId) => {
     try {
       await navigator.clipboard.writeText(text);
+      setActiveButton(buttonId);
       setCopyStatus(`Copiado: ${text}`);
-      setTimeout(() => setCopyStatus(''), 3000);
+      setTimeout(() => {
+        setActiveButton(null);
+        setCopyStatus('');
+      }, 2000);
     } catch (error) {
       console.error('Error copying text:', error);
       setCopyStatus('No se pudo copiar. Intenta nuevamente.');
@@ -469,7 +474,7 @@ function ContactPage() {
                   <a href="mailto:PLACEHOLDER_EMAIL@example.com">PLACEHOLDER_EMAIL@example.com</a>
                 </p>
               </div>
-              <button className="copyBtn" onClick={() => handleCopy('PLACEHOLDER_EMAIL@example.com')} aria-label="Copiar correo electrónico">
+              <button className={`copyBtn ${activeButton === 'email' ? 'active' : ''}`} onClick={() => handleCopy('PLACEHOLDER_EMAIL@example.com', 'email')} aria-label="Copiar correo electrónico">
                 <span>Copiar</span>
                 <span>✓</span>
               </button>
@@ -482,7 +487,7 @@ function ContactPage() {
                   <a href="tel:PLACEHOLDER_PHONE">PLACEHOLDER_PHONE</a>
                 </p>
               </div>
-              <button className="copyBtn" onClick={() => handleCopy('PLACEHOLDER_PHONE')} aria-label="Copiar teléfono">
+              <button className={`copyBtn ${activeButton === 'phone' ? 'active' : ''}`} onClick={() => handleCopy('PLACEHOLDER_PHONE', 'phone')} aria-label="Copiar teléfono">
                 <span>Copiar</span>
                 <span>✓</span>
               </button>
@@ -497,7 +502,7 @@ function ContactPage() {
                   </a>
                 </p>
               </div>
-              <button className="copyBtn" onClick={() => handleCopy('@PLACEHOLDER_INSTAGRAM')} aria-label="Copiar Instagram">
+              <button className={`copyBtn ${activeButton === 'instagram' ? 'active' : ''}`} onClick={() => handleCopy('@PLACEHOLDER_INSTAGRAM', 'instagram')} aria-label="Copiar Instagram">
                 <span>Copiar</span>
                 <span>✓</span>
               </button>

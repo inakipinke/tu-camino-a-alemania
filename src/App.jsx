@@ -471,10 +471,10 @@ function ContactPage() {
               <div>
                 <h3>📧 Correo Electrónico</h3>
                 <p>
-                  <a href="mailto:PLACEHOLDER_EMAIL@example.com">PLACEHOLDER_EMAIL@example.com</a>
+                  <a href="mailto:gestoriaturnosytramites@gmail.com">gestoriaturnosytramites@gmail.com</a>
                 </p>
               </div>
-              <button className={`copyBtn ${activeButton === 'email' ? 'active' : ''}`} onClick={() => handleCopy('PLACEHOLDER_EMAIL@example.com', 'email')} aria-label="Copiar correo electrónico">
+              <button className={`copyBtn ${activeButton === 'email' ? 'active' : ''}`} onClick={() => handleCopy('gestoriaturnosytramites@gmail.com', 'email')} aria-label="Copiar correo electrónico">
                 <span>Copiar</span>
                 <span>✓</span>
               </button>
@@ -484,10 +484,10 @@ function ContactPage() {
               <div>
                 <h3>📱 Teléfono</h3>
                 <p>
-                  <a href="tel:PLACEHOLDER_PHONE">PLACEHOLDER_PHONE</a>
+                  <a href="tel:+48 572 858 565">+48 572 858 565</a>
                 </p>
               </div>
-              <button className={`copyBtn ${activeButton === 'phone' ? 'active' : ''}`} onClick={() => handleCopy('PLACEHOLDER_PHONE', 'phone')} aria-label="Copiar teléfono">
+              <button className={`copyBtn ${activeButton === 'phone' ? 'active' : ''}`} onClick={() => handleCopy('+48 572 858 565', 'phone')} aria-label="Copiar teléfono">
                 <span>Copiar</span>
                 <span>✓</span>
               </button>
@@ -497,12 +497,12 @@ function ContactPage() {
               <div>
                 <h3>📲 Instagram</h3>
                 <p>
-                  <a href="https://instagram.com/PLACEHOLDER_INSTAGRAM" target="_blank" rel="noopener noreferrer">
-                    @PLACEHOLDER_INSTAGRAM
+                  <a href="https://www.instagram.com/camino_alemania2026/?hl=es" target="_blank" rel="noopener noreferrer">
+                    @camino_alemania2026
                   </a>
                 </p>
               </div>
-              <button className={`copyBtn ${activeButton === 'instagram' ? 'active' : ''}`} onClick={() => handleCopy('@PLACEHOLDER_INSTAGRAM', 'instagram')} aria-label="Copiar Instagram">
+              <button className={`copyBtn ${activeButton === 'instagram' ? 'active' : ''}`} onClick={() => handleCopy('https://www.instagram.com/camino_alemania2026/?hl=es', 'instagram')} aria-label="Copiar Instagram">
                 <span>Copiar</span>
                 <span>✓</span>
               </button>

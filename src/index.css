@@ -109,7 +109,7 @@ body {
 }
 
 .mobile-menu-btn.open span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 2px);
+  transform: rotate(45deg) translate(7px, 2px);
 }
 
 .mobile-menu-btn.open span:nth-child(2) {

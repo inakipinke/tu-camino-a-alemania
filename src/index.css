@@ -231,6 +231,15 @@ body {
   text-decoration: none;
 }
 
+.serviceLink {
+  color: #777 !important;
+  text-decoration: none;
+}
+
+.serviceLink:hover {
+  color: #999 !important;
+}
+
 .copyBtn {
   background-color: #7676762c;
   width: 100px;

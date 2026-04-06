@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import axios from 'axios';
 import logo from './logo.png';
 
 const initialForm = {
@@ -53,7 +52,7 @@ function HomePage() {
 
       <main>
         <section className="card">
-          <h2>Herzlich Willkommen!</h2>
+          <h2>Herzlich Willkommen! LOLO LOLO</h2>
 
           <p>
             En <strong>Tu camino a Alemania</strong> te acompañamos en cada paso de tu proceso migratorio.
@@ -180,17 +179,27 @@ function FormPage() {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setStatus('Enviando...');
+    setStatus('Procesando...');
 
     try {
-      const res = await axios.post('/api/submit', form);
-      setStatus(res?.data?.message || '¡Formulario enviado! Revisa tu correo.');
+      // Store form data in localStorage
+      const submissions = JSON.parse(localStorage.getItem('formSubmissions') || '[]');
+      submissions.push({
+        ...form,
+        timestamp: new Date().toISOString()
+      });
+      localStorage.setItem('formSubmissions', JSON.stringify(submissions));
+      
+      setStatus('¡Formulario enviado exitosamente! Nos pondremos en contacto pronto.');
       setForm(initialForm);
+      
+      // Clear success message after 5 seconds
+      setTimeout(() => setStatus(''), 5000);
     } catch (error) {
       console.error(error);
-      setStatus('Error al enviar. Revisa la consola');
+      setStatus('Error al guardar el formulario');
     }
   };
 

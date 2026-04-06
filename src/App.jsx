@@ -213,6 +213,9 @@ function FormPage() {
         }),
       });
 
+      console.log('Formspree response status:', response.status);
+      console.log('Formspree response:', await response.text());
+
       if (response.ok) {
         setStatus('¡Formulario enviado exitosamente! Revisa tu correo.');
       } else {

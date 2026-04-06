@@ -9,6 +9,7 @@ const initialForm = {
   phone: '',
   passport: '',
   birthDate: '',
+  embajada: '',
   turno: 'regular',
   videx: false
 };
@@ -124,7 +125,7 @@ function AboutPage() {
           <p>
             <strong>Tu camino a Alemania</strong> nace con el objetivo de hacer que los procesos migratorios
             sean más simples, claros y accesibles. Sabemos que cada caso es distinto, por eso ofrecemos
-            asesoramiento personalizado adaptado a la situación de cada cliente.
+            asesoramiento personalizado adaptado a la situación de cada cliente. Trabajamos con todas las embajadas alemanas de latinoamerica.
           </p>
 
 
@@ -138,6 +139,11 @@ function AboutPage() {
   <li>
     <strong>Turno Express (EUR 119)</strong><br />
     Conseguimos el turno en un plazo estimado de 1 a 3 días, pudiendo extenderse hasta 2 semanas. Ideal para quienes necesitan una respuesta rápida o tienen fechas límite próximas.
+  </li>
+    <br />
+  <li>
+    <strong>Videx + Documentos (EUR 20)</strong><br />
+    Te ayudamos a completar el formulario Videx, necesario para la mayoría de los trámites relacionados con Alemania, y corroboramos tus documentos para asegurarnos de que todo esté en orden antes de tu cita.
   </li>
 </ul>
 
@@ -242,6 +248,7 @@ function FormPage() {
           phone: form.phone,
           passport: form.passport,
           birthDate: form.birthDate,
+          embajada: form.embajada,
           turno: form.turno,
           videx: form.videx ? 'Sí' : 'No',
           _replyto: form.email,
@@ -333,6 +340,17 @@ function FormPage() {
                 value={form.birthDate}
                 onChange={handleChange}
                 type="date"
+                required
+              />
+            </label>
+
+            <label>
+              Embajada (país o ciudad)
+              <input
+                name="embajada"
+                value={form.embajada}
+                onChange={handleChange}
+                placeholder="Ej: Alemania, Madrid, Buenos Aires"
                 required
               />
             </label>

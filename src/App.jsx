@@ -9,7 +9,8 @@ const initialForm = {
   phone: '',
   passport: '',
   birthDate: '',
-  turno: 'regular'
+  turno: 'regular',
+  videx: false
 };
 
 function Navbar() {
@@ -205,9 +206,10 @@ function FormPage() {
   const [status, setStatus] = useState('');
 
   const handleChange = (e) => {
+    const { name, type, value, checked } = e.target;
     setForm((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [name]: type === 'checkbox' ? checked : value
     }));
   };
 
@@ -241,6 +243,7 @@ function FormPage() {
           passport: form.passport,
           birthDate: form.birthDate,
           turno: form.turno,
+          videx: form.videx ? 'Sí' : 'No',
           _replyto: form.email,
         }),
       });
@@ -332,6 +335,30 @@ function FormPage() {
                 type="date"
                 required
               />
+            </label>
+
+            <label>
+              Turno
+              <select
+                name="turno"
+                value={form.turno}
+                onChange={handleChange}
+                required
+              >
+                <option value="regular">Regular</option>
+                <option value="express">Express</option>
+                <option value="ninguno">Ninguno</option>
+              </select>
+            </label>
+
+            <label className="checkboxLabel">
+              <input
+                type="checkbox"
+                name="videx"
+                checked={form.videx}
+                onChange={handleChange}
+              />
+              Videx + Documentos
             </label>
 
             <button

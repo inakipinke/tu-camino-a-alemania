@@ -194,8 +194,7 @@ function FormPage() {
       localStorage.setItem('formSubmissions', JSON.stringify(submissions));
 
       // Send to Formspree for email notification
-      // Replace with your Formspree form ID from https://formspree.io
-      const FORMSPREE_ID = 'https://formspree.io/f/mjgpjqap'; // ← Change this!
+      const FORMSPREE_ID = 'mjgpjqap';
       
       const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: 'POST',

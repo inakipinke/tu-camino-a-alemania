@@ -24,13 +24,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   /* ✅ background image */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./background.webp");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url("./background.webp");
   background-size: cover;
   background-position: center;
   background-attachment: scroll;
   background-repeat: no-repeat;
   min-height: 100vh;
-  background-color: #000;
+  background-color: #111;
 
   color: var(--text);
 }

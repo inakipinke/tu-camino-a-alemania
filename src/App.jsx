@@ -254,7 +254,7 @@ function FormPage() {
       if (response.ok) {
         setStatus('¡Formulario enviado exitosamente! Te vamos a contactar pronto.');
       } else {
-        setStatus('Error al enviar, contactanos directamente a nuestro correo);
+        setStatus('Error al enviar, contactanos directamente a nuestro correo');
       }
       
       setForm(initialForm);

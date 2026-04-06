@@ -176,7 +176,6 @@ body {
   color: var(--g-gold);
   background: rgba(255, 204, 0, 0.1);
   transform: scale(1.05);
-  transform: rotate(360deg);
 }
 
 .navLinkPrimary:hover {

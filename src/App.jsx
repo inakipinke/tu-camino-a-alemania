@@ -195,7 +195,7 @@ function FormPage() {
 
       // Send to Formspree for email notification
       // Replace with your Formspree form ID from https://formspree.io
-      const FORMSPREE_ID = 'YOUR_FORMSPREE_ID'; // ← Change this!
+      const FORMSPREE_ID = 'https://formspree.io/f/mjgpjqap'; // ← Change this!
       
       const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: 'POST',

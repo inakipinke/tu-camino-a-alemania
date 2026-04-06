@@ -94,8 +94,7 @@ body {
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 8px;
-  margin-right: 8px;
+  padding: 0;
   z-index: 1001;
 }
 

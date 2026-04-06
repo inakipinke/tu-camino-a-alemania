@@ -224,7 +224,7 @@ body {
 }
 
 .contact-item a {
-  color: #555;
+  color: #000000;
   text-decoration: none;
 }
 
@@ -237,10 +237,41 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .copyBtn:hover {
   background: #444;
+}
+
+.copyIcon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+
+.copyIcon::before,
+.copyIcon::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 14px;
+  border: 2px solid white;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.copyIcon::before {
+  top: 0;
+  left: 2px;
+}
+
+.copyIcon::after {
+  top: 4px;
+  left: 0;
 }
 
 .copyStatus {

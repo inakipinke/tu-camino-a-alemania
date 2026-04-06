@@ -1,0 +1,283 @@
+:root {
+  --g-black: #000;
+  --g-red: #dd0000;
+  --g-gold: #ffcc00;
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --text-light: #555;
+  --border: #e0e0e0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* ✅ background image */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./beautiful-view-zagreb.jpg.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  
+
+  color: var(--text);
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  /*background: rgba(0, 0, 0, 0.18);*/
+  /*backdrop-filter: blur(4px);*/
+  transition: background-color .35s ease, box-shadow .35s ease, backdrop-filter .35s ease;
+}
+
+.navbar--scrolled {
+  background: rgba(0, 0, 0, 0.45);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+}
+
+.navContainer {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.navLogo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.navLogo img {
+  height: 120px;
+  width: auto;
+  transition: all 0.3s ease;
+}
+
+.navLogo:hover img {
+  transform: scale(1.05);
+}
+
+.navLinks {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.navLink {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+}
+
+.navLink:hover {
+  color: var(--g-gold);
+  background: rgba(255, 204, 0, 0.1);
+}
+
+.navLinkPrimary:hover {
+  color: white;
+  background: rgba(255, 204, 0, 0.1);
+}
+
+.navLinkPrimary {
+  background: var(--g-red);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(221, 0, 0, 0.3);
+}
+
+.navLinkPrimary:hover {
+  background: #cc0000;
+  transform: translateY(-2px);
+}
+
+/* ================= PAGE ================= */
+
+.page {
+  min-height: 100vh;
+
+  /* ✅ IMPORTANT: allow background to show */
+  background: transparent;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(26,26,26,0.9));
+  color: white;
+  padding: 3.5rem 2rem;
+  text-align: center;
+  border-bottom: 6px solid var(--g-red);
+}
+
+.hero h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.8rem, 6vw, 3rem);
+  font-weight: 800;
+}
+
+.hero p {
+  margin: 0 0 1.5rem;
+  color: #ddd;
+}
+
+/* hero buttons */
+.heroLinks {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.navBtn {
+  text-decoration: none;
+  color: var(--g-black);
+  background: var(--g-gold);
+  padding: 0.65rem 1.6rem;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.navBtn:hover {
+  transform: translateY(-2px);
+  background: #ffd700;
+}
+
+/* ================= MAIN ================= */
+
+main {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  padding: 3rem 1.5rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 650px;
+
+  /* ✅ semi-transparent for glass effect */
+  background: rgba(255, 255, 255, 0.66);
+
+  backdrop-filter: blur(4px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: -10px 10px 40px rgba(0, 0, 0, 0.39);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.cardR {
+    max-width: 900px;
+}
+
+.cardF {
+    
+}
+
+.card .form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+
+/* ================= FORM ================= */
+
+.form {
+  display: grid;
+  gap: 1.3rem;
+}
+
+.form input,
+.form select {
+  width: 100%;
+  margin-top: 0.5rem;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+}
+
+.form input:focus,
+.form select:focus {
+  outline: none;
+  border-color: var(--g-red);
+}
+
+/* ================= BUTTON ================= */
+
+
+.primaryBtn {
+  display: block;
+  width: fit-content;      /* keeps button size based on content */
+  margin: 0.5rem auto 0 auto;     /* centers horizontally and push to bottom when possible */
+  margin-top: auto;
+
+  background: linear-gradient(90deg, var(--g-red), #cc0000);
+  color: white;
+  border: 0;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-3px);
+}
+
+label {
+  font-weight: 500;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+  .navLinks {
+    gap: 0.7rem;
+  }
+
+  .hero {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .card {
+    padding: 1.8rem;
+  }
+}

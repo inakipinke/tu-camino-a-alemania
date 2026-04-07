@@ -133,12 +133,11 @@ function AboutPage() {
 <ul>
   <li>
     <strong>Turno Regular (EUR 119)</strong><br />
-    Serás incluido en una lista de espera. El tiempo estimado para conseguir el turno con la embajada puede variar entre 2 semanas y 2 meses.
-  </li>
+Serás incluido en una lista de espera. El tiempo estimado para conseguir la asignación del turno con la embajada puede variar entre 2 semanas y 2 meses. Tené en cuenta que la fecha del turno en sí suele ser aproximadamente 2 meses después de haber sido asignado.  </li>
   <br />
   <li>
     <strong>Turno Express (EUR 199)</strong><br />
-    Conseguimos el turno en un plazo estimado de 1 a 3 días, pudiendo extenderse hasta 2 semanas. Ideal para quienes necesitan una respuesta rápida o tienen fechas límite próximas.
+    Conseguimos el turno (la asignación de la cita) en un plazo estimado de 1 a 3 días, pudiendo extenderse hasta 2 semanas. Tené en cuenta que la fecha del turno en sí suele ser aproximadamente 2 meses después de haber sido asignado. Ideal para quienes necesitan una respuesta rápida o tienen fechas límite próximas.
   </li>
     <br />
   <li>

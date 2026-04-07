@@ -405,6 +405,10 @@ main {
     
 }
 
+.cardP {
+  
+}
+
 .card .form {
   display: flex;
   flex-direction: column;

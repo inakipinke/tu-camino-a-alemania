@@ -398,10 +398,10 @@ main {
   max-width: 650px;
 
   /* ✅ semi-transparent for glass effect */
-  background: rgba(255, 255, 255, 0.66);
+  background: rgba(255, 255, 255, 0.86);
 
   backdrop-filter: blur(4px);
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 16px;
   padding: 2.5rem;
   box-shadow: -10px 10px 40px rgba(0, 0, 0, 0.39);

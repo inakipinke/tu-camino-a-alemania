@@ -483,6 +483,9 @@ function FormPage() {
               </label>
             </div>
 
+          <p style={{ marginTop: '1.25rem', marginBottom: 0 }}>
+            Te contactaremos en las próximas 48 horas hábiles para confirmar tu registro y brindarte los siguientes pasos. Si no recibes respuesta en ese plazo, por favor revisa tu carpeta de spam o contáctanos directamente a nuestro correo electrónico. ¡Gracias por confiar en nosotros!
+          </p>
             <button
               type="submit"
               className="primaryBtn"
@@ -491,9 +494,6 @@ function FormPage() {
               Enviar
             </button>
           </form>
-          <p style={{ marginTop: '1.25rem', marginBottom: 0 }}>
-            Te contactaremos en las próximas 48 horas hábiles para confirmar tu registro y brindarte los siguientes pasos. Si no recibes respuesta en ese plazo, por favor revisa tu carpeta de spam o contáctanos directamente a nuestro correo electrónico. ¡Gracias por confiar en nosotros!
-          </p>
 
           {status && <p className="status">{status}</p>}
         </section>

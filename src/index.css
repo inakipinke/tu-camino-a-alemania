@@ -255,6 +255,18 @@ body {
   color: #999 !important;
 }
 
+.service-price {
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: 0.45rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
+  line-height: 1;
+  color: #000000;
+}
+
 .copyBtn {
   background-color: #7676762c;
   width: 100px;
@@ -389,7 +401,7 @@ main {
   background: rgba(255, 255, 255, 0.66);
 
   backdrop-filter: blur(4px);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 16px;
   padding: 2.5rem;
   box-shadow: -10px 10px 40px rgba(0, 0, 0, 0.39);
@@ -547,6 +559,15 @@ label {
 
   .cardP .primaryBtn {
     margin-top: 0.75rem;
+  }
+
+  .services-list .contact-item {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .services-list .service-price {
+    margin-top: 0.1rem;
   }
 
   .requirements-card ul {

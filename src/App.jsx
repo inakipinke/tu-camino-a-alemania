@@ -128,35 +128,68 @@ function AboutPage() {
             asesoramiento personalizado adaptado a la situación de cada cliente. Trabajamos con todas las embajadas alemanas de latinoamerica. 📲 Seguinos en Instagram: <a className="serviceLink" href="https://www.instagram.com/camino_alemania2026/?hl=es" target="_blank" rel="noopener noreferrer">@camino_alemania2026</a> para tips, novedades y turnos disponibles.
           </p>
 
+          <h3>Nuestros servicios</h3>
+          <div className="contact-list services-list">
+            <div className="contact-item">
+              <div>
+                <h3>Turno Regular</h3>
+                <p>
+                  Serás incluido en una lista de espera. El tiempo estimado para conseguir la asignación del turno con la embajada puede variar entre 2 semanas y 2 meses. Tené en cuenta que la fecha del turno en sí suele ser aproximadamente 2 meses después de haber sido asignado.
+                </p>
+              </div>
+              <strong className="service-price">EUR 119</strong>
+            </div>
 
-<h3>Nuestros servicios</h3>
-<ul>
-  <li>
-    <strong>Turno Regular (EUR 119)</strong><br />
-Serás incluido en una lista de espera. El tiempo estimado para conseguir la asignación del turno con la embajada puede variar entre 2 semanas y 2 meses. Tené en cuenta que la fecha del turno en sí suele ser aproximadamente 2 meses después de haber sido asignado.  </li>
-  <br />
-  <li>
-    <strong>Turno Express (EUR 199)</strong><br />
-    Conseguimos el turno (la asignación de la cita) en un plazo estimado de 1 a 3 días, pudiendo extenderse hasta 2 semanas. Tené en cuenta que la fecha del turno en sí suele ser aproximadamente 2 meses después de haber sido asignado. Ideal para quienes necesitan una respuesta rápida o tienen fechas límite próximas.
-  </li>
-    <br />
-  <li>
-    <strong>Formulario Videx (EUR 20)</strong><br />
-    Te ayudamos a completar el formulario Videx, necesario para la mayoría de los trámites relacionados con Alemania.
-  </li>
-  <li>
-    <strong>Carta de motivacion (EUR 10)</strong><br />
-    Te ayudamos a completar la carta de motivacion, la cual es fundamental para explicar el propósito de tu viaje y demostrar tu interés genuino en Alemania.
-  </li>
-  <li>
-    <strong>Curriculum con Europass (EUR 10)</strong><br />
-    Corroboramos tu curriculum vitae y lo adaptamos al formato Europass, reconocido internacionalmente, para que puedas presentar tu experiencia de manera clara y profesional en tus trámites migratorios hacia Alemania.
-  </li>
-  <li>
-    <strong>Todos los documentos (EUR 35)</strong><br />
-    Asistencia completa con todos los documentos necesarios para tu trámite, incluyendo el formulario Videx, carta de motivación y curriculum vitae en formato Europass, asegurando que tu solicitud esté completa y bien presentada.
-  </li>
-</ul>
+            <div className="contact-item">
+              <div>
+                <h3>Turno Express</h3>
+                <p>
+                  Conseguimos el turno (la asignación de la cita) en un plazo estimado de 1 a 3 días, pudiendo extenderse hasta 2 semanas. Tené en cuenta que la fecha del turno en sí suele ser aproximadamente 2 meses después de haber sido asignado. Ideal para quienes necesitan una respuesta rápida o tienen fechas límite próximas.
+                </p>
+              </div>
+              <strong className="service-price">EUR 199</strong>
+            </div>
+
+            <div className="contact-item">
+              <div>
+                <h3>Formulario Videx</h3>
+                <p>
+                  Te ayudamos a completar el formulario Videx, necesario para la mayoría de los trámites relacionados con Alemania.
+                </p>
+              </div>
+              <strong className="service-price">EUR 20</strong>
+            </div>
+
+            <div className="contact-item">
+              <div>
+                <h3>Carta de motivación</h3>
+                <p>
+                  Te ayudamos a completar la carta de motivación, la cual es fundamental para explicar el propósito de tu viaje y demostrar tu interés genuino en Alemania.
+                </p>
+              </div>
+              <strong className="service-price">EUR 10</strong>
+            </div>
+
+            <div className="contact-item">
+              <div>
+                <h3>Currículum con Europass</h3>
+                <p>
+                  Corroboramos tu currículum vitae y lo adaptamos al formato Europass, reconocido internacionalmente, para que puedas presentar tu experiencia de manera clara y profesional en tus trámites migratorios hacia Alemania.
+                </p>
+              </div>
+              <strong className="service-price">EUR 10</strong>
+            </div>
+
+            <div className="contact-item">
+              <div>
+                <h3>Todos los documentos</h3>
+                <p>
+                  Asistencia completa con todos los documentos necesarios para tu trámite, incluyendo el formulario Videx, carta de motivación y currículum vitae en formato Europass, asegurando que tu solicitud esté completa y bien presentada.
+                </p>
+              </div>
+              <strong className="service-price">EUR 35</strong>
+            </div>
+          </div>
 
           <h3>¿Por qué elegirnos?</h3>
           <ul>

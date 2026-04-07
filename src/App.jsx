@@ -132,18 +132,30 @@ function AboutPage() {
 <h3>Nuestros servicios</h3>
 <ul>
   <li>
-    <strong>Turno Regular (EUR 79)</strong><br />
+    <strong>Turno Regular (EUR 119)</strong><br />
     Serás incluido en una lista de espera. El tiempo estimado para conseguir el turno con la embajada puede variar entre 2 semanas y 2 meses.
   </li>
   <br />
   <li>
-    <strong>Turno Express (EUR 119)</strong><br />
+    <strong>Turno Express (EUR 199)</strong><br />
     Conseguimos el turno en un plazo estimado de 1 a 3 días, pudiendo extenderse hasta 2 semanas. Ideal para quienes necesitan una respuesta rápida o tienen fechas límite próximas.
   </li>
     <br />
   <li>
-    <strong>Videx + Documentos (EUR 20)</strong><br />
-    Te ayudamos a completar el formulario Videx, necesario para la mayoría de los trámites relacionados con Alemania, y corroboramos tus documentos para asegurarnos de que todo esté en orden antes de tu cita.
+    <strong>Formulario Videx (EUR 20)</strong><br />
+    Te ayudamos a completar el formulario Videx, necesario para la mayoría de los trámites relacionados con Alemania.
+  </li>
+  <li>
+    <strong>Carta de motivacion (EUR 10)</strong><br />
+    Te ayudamos a completar la carta de motivacion, la cual es fundamental para explicar el propósito de tu viaje y demostrar tu interés genuino en Alemania.
+  </li>
+  <li>
+    <strong>Curriculum con Europass (EUR 10)</strong><br />
+    Corroboramos tu curriculum vitae y lo adaptamos al formato Europass, reconocido internacionalmente, para que puedas presentar tu experiencia de manera clara y profesional en tus trámites migratorios hacia Alemania.
+  </li>
+  <li>
+    <strong>Todos los documentos (EUR 35)</strong><br />
+    Asistencia completa con todos los documentos necesarios para tu trámite, incluyendo el formulario Videx, carta de motivación y curriculum vitae en formato Europass, asegurando que tu solicitud esté completa y bien presentada.
   </li>
 </ul>
 

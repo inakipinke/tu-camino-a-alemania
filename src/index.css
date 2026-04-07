@@ -212,10 +212,16 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  min-width: 0;
   padding: 1.5rem;
   border-radius: 12px;
   background: rgba(128, 128, 128, 0.08);
   border: 1px solid rgba(128, 128, 128, 0.16);
+}
+
+.contact-item > div {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .contact-item h3 {
@@ -226,11 +232,18 @@ body {
 .contact-item p {
   margin: 0;
   color: #000000;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .contact-item a {
   color: #000000;
   text-decoration: none;
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .serviceLink {
@@ -413,6 +426,15 @@ main {
   border: 2px solid rgb(255, 255, 255);
   border-radius: 10px;
   padding: 0.85rem 1rem;
+  min-height: 3.2rem;
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.form input[type="date"] {
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .form input:focus,
@@ -509,6 +531,7 @@ label {
   .contact-item {
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
   }
 
   .contact-item button.copyBtn {

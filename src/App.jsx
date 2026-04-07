@@ -178,7 +178,7 @@ function RequirementsPage() {
       <Navbar />
 
       <main>
-        <section className="card cardR">
+        <section className="card cardR requirements-card">
           <h2>Requisitos</h2>
 
           <ul>

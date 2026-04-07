@@ -545,6 +545,11 @@ label {
     margin-top: 0.75rem;
   }
 
+  .requirements-card ul {
+    padding-left: 1rem;
+    margin-left: 0;
+  }
+
   .contact-item {
     flex-direction: column;
     align-items: flex-start;

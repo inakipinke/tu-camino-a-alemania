@@ -10,7 +10,11 @@ const initialForm = {
   passport: '',
   birthDate: '',
   embajada: '',
-  servicio: 'turno-regular'
+  turno: 'regular',
+  formularioVidex: false,
+  cartaMotivacion: false,
+  curriculumEuropass: false,
+  todosDocumentos: false
 };
 
 function Navbar() {
@@ -256,10 +260,30 @@ function FormPage() {
 
   const handleChange = (e) => {
     const { name, type, value, checked } = e.target;
-    setForm((prev) => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value
-    }));
+    setForm((prev) => {
+      if (type !== 'checkbox') {
+        return {
+          ...prev,
+          [name]: value
+        };
+      }
+
+      if (name === 'todosDocumentos') {
+        return {
+          ...prev,
+          todosDocumentos: checked,
+          formularioVidex: checked ? false : prev.formularioVidex,
+          cartaMotivacion: checked ? false : prev.cartaMotivacion,
+          curriculumEuropass: checked ? false : prev.curriculumEuropass
+        };
+      }
+
+      return {
+        ...prev,
+        [name]: checked,
+        todosDocumentos: checked ? false : prev.todosDocumentos
+      };
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -292,7 +316,11 @@ function FormPage() {
           passport: form.passport,
           birthDate: form.birthDate,
           embajada: form.embajada,
-          servicio: form.servicio,
+          turno: form.turno,
+          formularioVidex: form.formularioVidex ? 'Sí' : 'No',
+          cartaMotivacion: form.cartaMotivacion ? 'Sí' : 'No',
+          curriculumEuropass: form.curriculumEuropass ? 'Sí' : 'No',
+          todosDocumentos: form.todosDocumentos ? 'Sí' : 'No',
           _replyto: form.email,
         }),
       });
@@ -398,21 +426,62 @@ function FormPage() {
             </label>
 
             <label>
-              Servicio
+              Turno
               <select
-                name="servicio"
-                value={form.servicio}
+                name="turno"
+                value={form.turno}
                 onChange={handleChange}
                 required
               >
-                <option value="turno-regular">Turno Regular (EUR 119)</option>
-                <option value="turno-express">Turno Express (EUR 199)</option>
-                <option value="formulario-videx">Formulario Videx (EUR 20)</option>
-                <option value="carta-motivacion">Carta de motivación (EUR 10)</option>
-                <option value="curriculum-europass">Currículum con Europass (EUR 10)</option>
-                <option value="todos-documentos">Todos los documentos (EUR 35)</option>
+                <option value="regular">Regular (EUR 119)</option>
+                <option value="express">Express (EUR 199)</option>
+                <option value="ninguno">Ninguno</option>
               </select>
             </label>
+
+            <div className="checkboxGroup">
+              <strong>Servicios adicionales</strong>
+
+              <label className="checkboxLabel">
+                <input
+                  type="checkbox"
+                  name="formularioVidex"
+                  checked={form.formularioVidex}
+                  onChange={handleChange}
+                />
+                Formulario Videx (EUR 20)
+              </label>
+
+              <label className="checkboxLabel">
+                <input
+                  type="checkbox"
+                  name="cartaMotivacion"
+                  checked={form.cartaMotivacion}
+                  onChange={handleChange}
+                />
+                Carta de motivación (EUR 10)
+              </label>
+
+              <label className="checkboxLabel">
+                <input
+                  type="checkbox"
+                  name="curriculumEuropass"
+                  checked={form.curriculumEuropass}
+                  onChange={handleChange}
+                />
+                Currículum con Europass (EUR 10)
+              </label>
+
+              <label className="checkboxLabel">
+                <input
+                  type="checkbox"
+                  name="todosDocumentos"
+                  checked={form.todosDocumentos}
+                  onChange={handleChange}
+                />
+                Todos los documentos (EUR 35)
+              </label>
+            </div>
 
             <button
               type="submit"

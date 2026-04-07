@@ -406,7 +406,11 @@ main {
 }
 
 .cardP {
-  
+
+}
+
+.cardP .primaryBtn {
+  margin-top: 1rem;
 }
 
 .card .form {
@@ -533,8 +537,13 @@ label {
   }
 
   .cardP {
-    padding-bottom: 1rem;
+    padding: 1rem;
   }
+
+  .cardP .primaryBtn {
+    margin-top: 0.75rem;
+  }
+
   .contact-item {
     flex-direction: column;
     align-items: flex-start;

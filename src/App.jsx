@@ -491,6 +491,9 @@ function FormPage() {
               Enviar
             </button>
           </form>
+          <p style={{ marginTop: '2rem' }}>
+            Te contactaremos en las próximas 48 horas hábiles para confirmar tu registro y brindarte los siguientes pasos. Si no recibes respuesta en ese plazo, por favor revisa tu carpeta de spam o contáctanos directamente a nuestro correo electrónico. ¡Gracias por confiar en nosotros!
+          </p>
 
           <p className="status">{status}</p>
         </section>
@@ -579,22 +582,17 @@ function AdminPage() {
 }
 
 function ContactPage() {
-  const [copyStatus, setCopyStatus] = useState('');
   const [activeButton, setActiveButton] = useState(null);
 
   const handleCopy = async (text, buttonId) => {
     try {
       await navigator.clipboard.writeText(text);
       setActiveButton(buttonId);
-      setCopyStatus(`Copiado: ${text}`);
       setTimeout(() => {
         setActiveButton(null);
-        setCopyStatus('');
       }, 2000);
     } catch (error) {
       console.error('Error copying text:', error);
-      setCopyStatus('No se pudo copiar. Intenta nuevamente.');
-      setTimeout(() => setCopyStatus(''), 3000);
     }
   };
 
@@ -657,8 +655,6 @@ function ContactPage() {
               </button>
             </div>
           </div>
-
-          {copyStatus && <p className="copyStatus">{copyStatus}</p>}
 
           <p style={{ marginTop: '2rem', fontStyle: 'italic', color: 'var(--text-light)' }}>
             Nos comprometemos a responder tus consultas en el menor tiempo posible.

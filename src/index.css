@@ -304,8 +304,6 @@ body {
 
 .copyBtn.active {
   background-color: #0e418f;
-  width: 120px;
-  height: 40px;
 }
 
 .copyBtn.active span:first-child {
@@ -318,12 +316,6 @@ body {
   opacity: 1;
   color: #b5ccf3;
   transform: translate(-50%, -50%);
-}
-
-.copyStatus {
-  margin-top: 1.25rem;
-  color: var(--g-black);
-  font-weight: 600;
 }
 
 /* ================= PAGE ================= */

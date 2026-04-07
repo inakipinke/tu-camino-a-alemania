@@ -10,8 +10,7 @@ const initialForm = {
   passport: '',
   birthDate: '',
   embajada: '',
-  turno: 'regular',
-  videx: false
+  servicio: 'turno-regular'
 };
 
 function Navbar() {
@@ -293,8 +292,7 @@ function FormPage() {
           passport: form.passport,
           birthDate: form.birthDate,
           embajada: form.embajada,
-          turno: form.turno,
-          videx: form.videx ? 'Sí' : 'No',
+          servicio: form.servicio,
           _replyto: form.email,
         }),
       });
@@ -400,27 +398,20 @@ function FormPage() {
             </label>
 
             <label>
-              Turno
+              Servicio
               <select
-                name="turno"
-                value={form.turno}
+                name="servicio"
+                value={form.servicio}
                 onChange={handleChange}
                 required
               >
-                <option value="regular">Regular</option>
-                <option value="express">Express</option>
-                <option value="ninguno">Ninguno</option>
+                <option value="turno-regular">Turno Regular (EUR 119)</option>
+                <option value="turno-express">Turno Express (EUR 199)</option>
+                <option value="formulario-videx">Formulario Videx (EUR 20)</option>
+                <option value="carta-motivacion">Carta de motivación (EUR 10)</option>
+                <option value="curriculum-europass">Currículum con Europass (EUR 10)</option>
+                <option value="todos-documentos">Todos los documentos (EUR 35)</option>
               </select>
-            </label>
-
-            <label className="checkboxLabel">
-              <input
-                type="checkbox"
-                name="videx"
-                checked={form.videx}
-                onChange={handleChange}
-              />
-              Videx + Documentos
             </label>
 
             <button

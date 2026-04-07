@@ -85,7 +85,7 @@ function HomePage() {
       <Navbar />
 
       <main>
-        <section className="card">
+        <section className="card cardP">
           <h2>Willkommen!</h2>
 
           <p>

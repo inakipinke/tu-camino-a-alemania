@@ -534,40 +534,6 @@ label {
   margin-top: 0;
 }
 
-@media (min-width: 1440px) {
-  main {
-    padding: 3.5rem 2rem;
-  }
-
-  .card {
-    max-width: 820px;
-    padding: 2.8rem;
-  }
-
-  .cardR {
-    max-width: 1120px;
-  }
-
-  .cardF {
-    max-width: 920px;
-  }
-}
-
-@media (min-width: 1920px) {
-  .card {
-    max-width: 900px;
-    padding: 3rem;
-  }
-
-  .cardR {
-    max-width: 1240px;
-  }
-
-  .cardF {
-    max-width: 980px;
-  }
-}
-
 /* ================= MOBILE RESPONSIVE ================= */
 
 @media (max-width: 768px) {

@@ -137,7 +137,7 @@ function AboutPage() {
               <div>
                 <h3>Turno Regular</h3>
                 <p>
-                  Serás incluido en una lista de espera. El tiempo estimado para conseguir la asignación del turno con la embajada puede variar entre 2 semanas y 2 meses. Tené en cuenta que la fecha del turno en sí suele ser aproximadamente 2 meses después de haber sido asignado.
+                  Serás incluido en una lista de espera. El tiempo estimado para conseguir la asignación del turno con la embajada deseada puede variar entre 2 semanas y 2 meses. Tené en cuenta que la fecha del turno en sí suele ser aproximadamente 2 meses después de haber sido asignado.
                 </p>
               </div>
               <strong className="service-price">EUR 119</strong>
@@ -147,7 +147,7 @@ function AboutPage() {
               <div>
                 <h3>Turno Express</h3>
                 <p>
-                  Conseguimos el turno (la asignación de la cita) en un plazo estimado de 1 a 3 días, pudiendo extenderse hasta 2 semanas. Tené en cuenta que la fecha del turno en sí suele ser aproximadamente 2 meses después de haber sido asignado. Ideal para quienes necesitan una respuesta rápida o tienen fechas límite próximas.
+                  Conseguimos el turno (la asignación de la cita) en un plazo estimado de 1 a 3 días en la embajada deseada, pudiendo extenderse hasta 2 semanas. Tené en cuenta que la fecha del turno en sí suele ser aproximadamente 2 meses después de haber sido asignado. Ideal para quienes necesitan una respuesta rápida o tienen fechas límite próximas.
                 </p>
               </div>
               <strong className="service-price">EUR 199</strong>
@@ -631,10 +631,10 @@ function ContactPage() {
               <div>
                 <h3>📱 Teléfono</h3>
                 <p>
-                  <a href="tel:+48 572 858 565">+48 572 858 565</a>
+                  <a href="tel:+54 351 876-4765">+54 351 876-4765</a>
                 </p>
               </div>
-              <button className={`copyBtn ${activeButton === 'phone' ? 'active' : ''}`} onClick={() => handleCopy('+48 572 858 565', 'phone')} aria-label="Copiar teléfono">
+              <button className={`copyBtn ${activeButton === 'phone' ? 'active' : ''}`} onClick={() => handleCopy('+54 351 876-4765', 'phone')} aria-label="Copiar teléfono">
                 <span>Copiar</span>
                 <span>✓</span>
               </button>

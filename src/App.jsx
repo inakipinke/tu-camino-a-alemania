@@ -631,7 +631,7 @@ function ContactPage() {
               <div>
                 <h3>📱 Teléfono</h3>
                 <p>
-                  <a href="tel:+54 351 876-4765">+54 351 876-4765</a>
+                  <a href="tel:+54 351 876-4765">+54 351 876-4765</a> 
                 </p>
               </div>
               <button className={`copyBtn ${activeButton === 'phone' ? 'active' : ''}`} onClick={() => handleCopy('+54 351 876-4765', 'phone')} aria-label="Copiar teléfono">

@@ -20,6 +20,7 @@ const initialForm = {
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const isNavbarDark = isScrolled || isMobileMenuOpen;
 
   useEffect(() => {
     const onScroll = () => {
@@ -43,7 +44,7 @@ function Navbar() {
   };
 
   return (
-    <nav className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`}>
+    <nav className={`navbar ${isNavbarDark ? 'navbar--scrolled' : ''}`}>
       <div className="navContainer">
         <Link to="/" className="navLogo" onClick={closeMobileMenu}>
           <img src={logo} alt="tu camino" />

@@ -620,7 +620,7 @@ function ContactPage() {
                 <h3>
                   <img
                     className="contact-icon"
-                    src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/envelope-fill.svg"
+                    src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/envelope.svg"
                     alt="Correo"
                   />{' '}
                   Correo Electrónico

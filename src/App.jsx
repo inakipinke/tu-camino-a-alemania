@@ -617,7 +617,14 @@ function ContactPage() {
           <div className="contact-list">
             <div className="contact-item">
               <div>
-                <h3>📧 Correo Electrónico</h3>
+                <h3>
+                  <img
+                    className="contact-icon"
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@16.11.0/icons/gmail.svg"
+                    alt="Gmail"
+                  />{' '}
+                  Correo Electrónico
+                </h3>
                 <p>
                   <a className="serviceLink" href="mailto:gestoriaturnosytramites@gmail.com">gestoriaturnosytramites@gmail.com</a>
                 </p>

@@ -620,8 +620,8 @@ function ContactPage() {
                 <h3>
                   <img
                     className="contact-icon"
-                    src="https://cdn.jsdelivr.net/npm/simple-icons@16.11.0/icons/gmail.svg"
-                    alt="Gmail"
+                    src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/envelope-fill.svg"
+                    alt="Correo"
                   />{' '}
                   Correo Electrónico
                 </h3>

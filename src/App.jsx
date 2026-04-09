@@ -630,7 +630,14 @@ function ContactPage() {
 
             <div className="contact-item">
               <div>
-                <h3>📱 Teléfono</h3>
+                <h3>
+                  <img
+                    className="contact-icon"
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@16.11.0/icons/whatsapp.svg"
+                    alt="WhatsApp"
+                  />{' '}
+                  Teléfono
+                </h3>
                 <p>
                   <a className="serviceLink" href="https://wa.me/543518764765" target="_blank" rel="noopener noreferrer">+54 351 876-4765</a>
                 </p>
@@ -643,7 +650,14 @@ function ContactPage() {
 
             <div className="contact-item">
               <div>
-                <h3>📲 Instagram</h3>
+                <h3>
+                  <img
+                    className="contact-icon"
+                    src="https://cdn.jsdelivr.net/npm/simple-icons@16.11.0/icons/instagram.svg"
+                    alt="Instagram"
+                  />{' '}
+                  Instagram
+                </h3>
                 <p>
                   <a className="serviceLink" href="https://www.instagram.com/camino_alemania2026/?hl=es" target="_blank" rel="noopener noreferrer">
                     @camino_alemania2026

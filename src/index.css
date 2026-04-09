@@ -252,6 +252,12 @@ body {
   color: #000000;
 }
 
+.contact-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+}
+
 .contact-item p {
   margin: 0;
   color: #000000;

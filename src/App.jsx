@@ -643,7 +643,7 @@ function ContactPage() {
                     src="https://cdn.jsdelivr.net/npm/simple-icons@16.11.0/icons/whatsapp.svg"
                     alt="WhatsApp"
                   />{' '}
-                  Teléfono
+                  Whatsapp
                 </h3>
                 <p>
                   <a className="serviceLink" href="https://wa.me/543518764765" target="_blank" rel="noopener noreferrer">+54 351 876-4765</a>

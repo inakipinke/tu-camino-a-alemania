@@ -619,7 +619,7 @@ function ContactPage() {
               <div>
                 <h3>📧 Correo Electrónico</h3>
                 <p>
-                  <a href="mailto:gestoriaturnosytramites@gmail.com">gestoriaturnosytramites@gmail.com</a>
+                  <a className="serviceLink" href="mailto:gestoriaturnosytramites@gmail.com">gestoriaturnosytramites@gmail.com</a>
                 </p>
               </div>
               <button className={`copyBtn ${activeButton === 'email' ? 'active' : ''}`} onClick={() => handleCopy('gestoriaturnosytramites@gmail.com', 'email')} aria-label="Copiar correo electrónico">
@@ -632,7 +632,7 @@ function ContactPage() {
               <div>
                 <h3>📱 Teléfono</h3>
                 <p>
-                  <a href="tel:+54 351 876-4765">+54 351 876-4765</a> 
+                  <a className="serviceLink" href="https://wa.me/543518764765" target="_blank" rel="noopener noreferrer">+54 351 876-4765</a>
                 </p>
               </div>
               <button className={`copyBtn ${activeButton === 'phone' ? 'active' : ''}`} onClick={() => handleCopy('+54 351 876-4765', 'phone')} aria-label="Copiar teléfono">
@@ -645,7 +645,7 @@ function ContactPage() {
               <div>
                 <h3>📲 Instagram</h3>
                 <p>
-                  <a href="https://www.instagram.com/camino_alemania2026/?hl=es" target="_blank" rel="noopener noreferrer">
+                  <a className="serviceLink" href="https://www.instagram.com/camino_alemania2026/?hl=es" target="_blank" rel="noopener noreferrer">
                     @camino_alemania2026
                   </a>
                 </p>

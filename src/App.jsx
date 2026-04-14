@@ -90,7 +90,7 @@ function HomePage() {
 
       <main>
         <section className="card cardP">
-          <h2>Reserva tu turno para la Working Holiday Alemania</h2>
+          <h2>Reserva tu turno para la Visa Working Holiday Alemana!</h2>
 
           <p>
             ¿Hace meses que intentás conseguir turno y nunca hay disponibilidad?

@@ -50,7 +50,6 @@ function Navbar() {
           <img src={logo} alt="tu camino" />
         </Link>
         
-        {/* Desktop Navigation */}
         <div className="navLinks desktop-nav">
           <Link to="/" className="navLink">Inicio</Link>
           <Link to="/about" className="navLink">Servicios</Link>
@@ -59,7 +58,6 @@ function Navbar() {
           <Link to="/form" className="navLink navLinkPrimary">Regístrate</Link>
         </div>
 
-        {/* Mobile Menu Button */}
         <button 
           className={`mobile-menu-btn ${isMobileMenuOpen ? 'open' : ''}`}
           onClick={toggleMobileMenu}
@@ -70,7 +68,6 @@ function Navbar() {
           <span></span>
         </button>
 
-        {/* Mobile Navigation */}
         <div className={`navLinks mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}>
           <Link to="/" className="navLink" onClick={closeMobileMenu}>Inicio</Link>
           <Link to="/about" className="navLink" onClick={closeMobileMenu}>Servicios</Link>
@@ -90,26 +87,34 @@ function HomePage() {
 
       <main>
         <section className="card cardP">
-          <h2>Willkommen!</h2>
+          <h2>Conseguimos tu turno para la Working Holiday Alemania</h2>
 
           <p>
-            En <strong>Tu camino a Alemania</strong> te acompañamos en cada paso de tu proceso migratorio.
-            Nos especializamos en trámites vinculados a Alemania: ciudadanía, pasaportes, visas de estudio,
-            Working Holiday y gestión de turnos consulares.
+            ¿Hace semanas o incluso meses que intentás conseguir turno y nunca hay disponibilidad?
             <br /><br />
-            Nuestro equipo combina experiencia en documentación internacional con un enfoque práctico y personalizado.
-            Sabemos que emigrar puede ser complejo, por eso simplificamos cada etapa para que puedas avanzar con claridad y seguridad.
+            No sos el único. Los turnos se liberan sin aviso y suelen agotarse en minutos, mientras miles de personas intentan todos los días sin éxito.
+          </p>
+
+          <p>
+            En <strong>Tu camino a Alemania</strong> utilizamos un sistema optimizado que nos permite detectar y asegurar turnos mucho más rápido que intentándolo manualmente.
             <br /><br />
-            Trabajamos con clientes de Argentina y de todo el mundo, brindando asesoramiento claro, respuestas rápidas
-            y seguimiento constante hasta completar tu objetivo.
+            Mientras otros pierden horas refrescando la página, nosotros trabajamos activamente para conseguir tu cita.
+          </p>
+
+          <p>
+            ✔ Conseguimos turnos incluso cuando no hay disponibilidad visible
+            <br />
+            ✔ Ahorrá semanas (o meses) de intentos
+            <br />
+            ✔ Proceso simple, rápido y guiado
           </p>
 
           <p style={{ marginTop: '1.5rem' }}>
-            Empezá hoy y recibí orientación profesional adaptada a tu caso. No pierdas tiempo, los turnos son limitados y la demanda es alta. ¡Tu camino a Alemania comienza aquí!
+            ⚠ Los turnos son limitados y la demanda es muy alta. Cada semana trabajamos con un número reducido de solicitudes.
           </p>
 
-          <Link to="/about" className="primaryBtn">
-            Más información →
+          <Link to="/form" className="primaryBtn">
+            Quiero mi turno →
           </Link>
         </section>
       </main>
@@ -292,7 +297,6 @@ function FormPage() {
     setStatus('Enviando...');
 
     try {
-      // Store form data in localStorage (backup)
       const submissions = JSON.parse(localStorage.getItem('formSubmissions') || '[]');
       const newSubmission = {
         ...form,
@@ -301,7 +305,6 @@ function FormPage() {
       submissions.push(newSubmission);
       localStorage.setItem('formSubmissions', JSON.stringify(submissions));
 
-      // Send to Formspree for email notification
       const FORMSPREE_ID = 'mjgpjqap';
       
       const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
@@ -326,9 +329,6 @@ function FormPage() {
         }),
       });
 
-      console.log('Formspree response status:', response.status);
-      console.log('Formspree response:', await response.text());
-
       if (response.ok) {
         setStatus('¡Formulario enviado exitosamente! Te vamos a contactar pronto.');
       } else {
@@ -338,7 +338,6 @@ function FormPage() {
       setForm(initialForm);
       setTimeout(() => setStatus(''), 5000);
     } catch (error) {
-      console.error(error);
       setStatus('Error al enviar, contactanos directamente a nuestro correo');
     }
   };
@@ -354,86 +353,42 @@ function FormPage() {
           <form onSubmit={handleSubmit} className="form">
             <label>
               Nombre
-              <input
-                name="firstName"
-                value={form.firstName}
-                onChange={handleChange}
-                required
-              />
+              <input name="firstName" value={form.firstName} onChange={handleChange} required />
             </label>
 
             <label>
               Apellido
-              <input
-                name="lastName"
-                value={form.lastName}
-                onChange={handleChange}
-                required
-              />
+              <input name="lastName" value={form.lastName} onChange={handleChange} required />
             </label>
 
             <label>
               Correo Electrónico
-              <input
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-                type="email"
-                required
-              />
+              <input name="email" value={form.email} onChange={handleChange} type="email" required />
             </label>
 
             <label>
               Teléfono
-              <input
-                name="phone"
-                value={form.phone}
-                onChange={handleChange}
-                type="tel"
-                required
-              />
+              <input name="phone" value={form.phone} onChange={handleChange} type="tel" required />
             </label>
 
             <label>
               Número de Pasaporte
-              <input
-                name="passport"
-                value={form.passport}
-                onChange={handleChange}
-                required
-              />
+              <input name="passport" value={form.passport} onChange={handleChange} required />
             </label>
 
             <label>
               Fecha de nacimiento
-              <input
-                name="birthDate"
-                value={form.birthDate}
-                onChange={handleChange}
-                type="date"
-                required
-              />
+              <input name="birthDate" value={form.birthDate} onChange={handleChange} type="date" required />
             </label>
 
             <label>
               Embajada (país o ciudad)
-              <input
-                name="embajada"
-                value={form.embajada}
-                onChange={handleChange}
-                placeholder="Ej: Alemania, Madrid, Buenos Aires"
-                required
-              />
+              <input name="embajada" value={form.embajada} onChange={handleChange} placeholder="Ej: Alemania, Madrid, Buenos Aires" required />
             </label>
 
             <label>
               Turno
-              <select
-                name="turno"
-                value={form.turno}
-                onChange={handleChange}
-                required
-              >
+              <select name="turno" value={form.turno} onChange={handleChange} required>
                 <option value="regular">Regular (EUR 119)</option>
                 <option value="express">Express (EUR 199)</option>
                 <option value="ninguno">Ninguno</option>
@@ -444,54 +399,31 @@ function FormPage() {
               <strong>Servicios adicionales</strong>
 
               <label className="checkboxLabel">
-                <input
-                  type="checkbox"
-                  name="formularioVidex"
-                  checked={form.formularioVidex}
-                  onChange={handleChange}
-                />
+                <input type="checkbox" name="formularioVidex" checked={form.formularioVidex} onChange={handleChange} />
                 Formulario Videx (EUR 20)
               </label>
 
               <label className="checkboxLabel">
-                <input
-                  type="checkbox"
-                  name="cartaMotivacion"
-                  checked={form.cartaMotivacion}
-                  onChange={handleChange}
-                />
+                <input type="checkbox" name="cartaMotivacion" checked={form.cartaMotivacion} onChange={handleChange} />
                 Carta de motivación (EUR 10)
               </label>
 
               <label className="checkboxLabel">
-                <input
-                  type="checkbox"
-                  name="curriculumEuropass"
-                  checked={form.curriculumEuropass}
-                  onChange={handleChange}
-                />
+                <input type="checkbox" name="curriculumEuropass" checked={form.curriculumEuropass} onChange={handleChange} />
                 Currículum con Europass (EUR 10)
               </label>
 
               <label className="checkboxLabel">
-                <input
-                  type="checkbox"
-                  name="todosDocumentos"
-                  checked={form.todosDocumentos}
-                  onChange={handleChange}
-                />
+                <input type="checkbox" name="todosDocumentos" checked={form.todosDocumentos} onChange={handleChange} />
                 Todos los documentos (EUR 35)
               </label>
             </div>
 
-          <p style={{ marginTop: '1.25rem', marginBottom: 0 }}>
-            Te contactaremos en las próximas 48 horas hábiles para confirmar tu registro y brindarte los siguientes pasos. Si no recibes respuesta en ese plazo, por favor revisa tu carpeta de spam o contáctanos directamente a nuestro correo electrónico. ¡Gracias por confiar en nosotros!
-          </p>
-            <button
-              type="submit"
-              className="primaryBtn"
-              style={{ width: '100%' }}
-            >
+            <p style={{ marginTop: '1.25rem', marginBottom: 0 }}>
+              Te contactaremos en las próximas 48 horas hábiles para confirmar tu registro y brindarte los siguientes pasos.
+            </p>
+
+            <button type="submit" className="primaryBtn" style={{ width: '100%' }}>
               Enviar
             </button>
           </form>
@@ -503,199 +435,9 @@ function FormPage() {
   );
 }
 
-function AdminPage() {
-  const [submissions, setSubmissions] = useState([]);
-
-  useEffect(() => {
-    const data = JSON.parse(localStorage.getItem('formSubmissions') || '[]');
-    setSubmissions(data);
-  }, []);
-
-  const handleDownload = () => {
-    const dataStr = JSON.stringify(submissions, null, 2);
-    const dataBlob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(dataBlob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `submissions_${new Date().toISOString().split('T')[0]}.json`;
-    link.click();
-    URL.revokeObjectURL(url);
-  };
-
-  const handleClear = () => {
-    if (window.confirm('¿Estás seguro de que quieres eliminar todos los envíos?')) {
-      localStorage.setItem('formSubmissions', '[]');
-      setSubmissions([]);
-    }
-  };
-
-  return (
-    <div className="page">
-      <Navbar />
-      <main>
-        <section className="card cardR">
-          <h2>📋 Panel de Envíos</h2>
-          <p>Total de registros: <strong>{submissions.length}</strong></p>
-
-          {submissions.length === 0 ? (
-            <p>No hay envíos registrados aún.</p>
-          ) : (
-            <>
-              <div style={{ overflowX: 'auto', marginBottom: '1.5rem' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
-                  <thead>
-                    <tr style={{ borderBottom: '2px solid #333' }}>
-                      <th style={{ padding: '0.5rem', textAlign: 'left' }}>Nombre</th>
-                      <th style={{ padding: '0.5rem', textAlign: 'left' }}>Email</th>
-                      <th style={{ padding: '0.5rem', textAlign: 'left' }}>Teléfono</th>
-                      <th style={{ padding: '0.5rem', textAlign: 'left' }}>Pasaporte</th>
-                      <th style={{ padding: '0.5rem', textAlign: 'left' }}>Fecha de Envío</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {submissions.map((sub, idx) => (
-                      <tr key={idx} style={{ borderBottom: '1px solid #ddd' }}>
-                        <td style={{ padding: '0.5rem' }}>{sub.firstName} {sub.lastName}</td>
-                        <td style={{ padding: '0.5rem' }}>{sub.email}</td>
-                        <td style={{ padding: '0.5rem' }}>{sub.phone}</td>
-                        <td style={{ padding: '0.5rem' }}>{sub.passport}</td>
-                        <td style={{ padding: '0.5rem' }}>{new Date(sub.timestamp).toLocaleString()}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-
-              <div style={{ display: 'flex', gap: '1rem' }}>
-                <button onClick={handleDownload} className="primaryBtn">
-                  💾 Descargar JSON
-                </button>
-                <button onClick={handleClear} className="primaryBtn" style={{ backgroundColor: '#d9534f' }}>
-                  🗑️ Limpiar Todo
-                </button>
-              </div>
-            </>
-          )}
-        </section>
-      </main>
-    </div>
-  );
-}
-
-function ContactPage() {
-  const [activeButton, setActiveButton] = useState(null);
-
-  const handleCopy = async (text, buttonId) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setActiveButton(buttonId);
-      setTimeout(() => {
-        setActiveButton(null);
-      }, 2000);
-    } catch (error) {
-      console.error('Error copying text:', error);
-    }
-  };
-
-  return (
-    <div className="page">
-      <Navbar />
-
-      <main>
-        <section className="card cardR contact-card">
-          <h2>Contactanos</h2>
-
-          <p>
-            <strong>¿Necesitas ayuda?</strong> Estamos aquí para ti.
-          </p>
-
-          <p>
-            Puedes contactarnos de <strong>9:00 AM a 7:00 PM todos los días </strong>
-            a través de los siguientes medios:
-          </p>
-
-          <div className="contact-list">
-            <div className="contact-item">
-              <div>
-                <h3>
-                  <img
-                    className="contact-icon"
-                    src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/envelope.svg"
-                    alt="Correo"
-                  />{' '}
-                  Correo Electrónico
-                </h3>
-                <p>
-                  <a className="serviceLink" href="mailto:gestoriaturnosytramites@gmail.com">gestoriaturnosytramites@gmail.com</a>
-                </p>
-              </div>
-              <button className={`copyBtn ${activeButton === 'email' ? 'active' : ''}`} onClick={() => handleCopy('gestoriaturnosytramites@gmail.com', 'email')} aria-label="Copiar correo electrónico">
-                <span>Copiar</span>
-                <span>✓</span>
-              </button>
-            </div>
-
-            <div className="contact-item">
-              <div>
-                <h3>
-                  <img
-                    className="contact-icon"
-                    src="https://cdn.jsdelivr.net/npm/simple-icons@16.11.0/icons/whatsapp.svg"
-                    alt="WhatsApp"
-                  />{' '}
-                  Whatsapp
-                </h3>
-                <p>
-                  <a className="serviceLink" href="https://wa.me/543518764765" target="_blank" rel="noopener noreferrer">+54 351 876-4765</a>
-                </p>
-              </div>
-              <button className={`copyBtn ${activeButton === 'phone' ? 'active' : ''}`} onClick={() => handleCopy('+54 351 876-4765', 'phone')} aria-label="Copiar teléfono">
-                <span>Copiar</span>
-                <span>✓</span>
-              </button>
-            </div>
-
-            <div className="contact-item">
-              <div>
-                <h3>
-                  <img
-                    className="contact-icon"
-                    src="https://cdn.jsdelivr.net/npm/simple-icons@16.11.0/icons/instagram.svg"
-                    alt="Instagram"
-                  />{' '}
-                  Instagram
-                </h3>
-                <p>
-                  <a className="serviceLink" href="https://www.instagram.com/camino_alemania2026/?hl=es" target="_blank" rel="noopener noreferrer">
-                    @camino_alemania2026
-                  </a>
-                </p>
-              </div>
-              <button className={`copyBtn ${activeButton === 'instagram' ? 'active' : ''}`} onClick={() => handleCopy('https://www.instagram.com/camino_alemania2026/?hl=es', 'instagram')} aria-label="Copiar Instagram">
-                <span>Copiar</span>
-                <span>✓</span>
-              </button>
-            </div>
-          </div>
-
-          <p style={{ marginTop: '2rem', fontStyle: 'italic', color: 'var(--text-light)' }}>
-            Nos comprometemos a responder tus consultas en el menor tiempo posible.
-          </p>
-        </section>
-      </main>
-    </div>
-  );
-}
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-}
+function AdminPage() { return null }
+function ContactPage() { return null }
+function ScrollToTop() { return null }
 
 export default function App() {
   return (

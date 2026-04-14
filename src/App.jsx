@@ -90,10 +90,10 @@ function HomePage() {
 
       <main>
         <section className="card cardP">
-          <h2>Conseguimos tu turno para la Working Holiday Alemania</h2>
+          <h2>Reserva tu turno para la Working Holiday Alemania</h2>
 
           <p>
-            ¿Hace semanas o incluso meses que intentás conseguir turno y nunca hay disponibilidad?
+            ¿Hace meses que intentás conseguir turno y nunca hay disponibilidad?
             <br /><br />
             No sos el único. Los turnos se liberan sin aviso y suelen agotarse en minutos, mientras miles de personas intentan todos los días sin éxito.
           </p>

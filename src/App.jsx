@@ -116,8 +116,8 @@ function HomePage() {
             ⚠ Los turnos son limitados y la demanda es muy alta. Cada semana trabajamos con un número reducido de solicitudes.
           </p>
 
-          <Link to="/form" className="primaryBtn">
-            Quiero mi turno →
+          <Link to="/about" className="primaryBtn">
+            Ver precios
           </Link>
         </section>
       </main>

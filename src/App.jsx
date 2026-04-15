@@ -10,7 +10,7 @@ const initialForm = {
   passport: '',
   birthDate: '',
   embajada: '',
-  turno: 'regular',
+  turno: 'otras_embajadas',
   formularioVidex: false,
   cartaMotivacion: false,
   curriculumEuropass: false,
@@ -146,7 +146,7 @@ function AboutPage() {
               <div>
                 <h3>Turno Regular</h3>
                 <p>
-                  Te conseguimos un turno en cualquier embajada alemana (excepto la de Buenos Aires) en un plazo estimado de 2 semanas. Tené en cuenta que la fecha del turno en sí suele ser aproximadamente 2 meses después de haber sido asignado. Ideal para quienes tienen flexibilidad en sus fechas de viaje y buscan una opción más económica.
+                  Te conseguimos un turno en cualquier embajada alemana (excepto la de Buenos Aires) en un plazo estimado de 2 semanas. Ideal para quienes tienen flexibilidad en sus fechas de viaje y buscan una opción más económica.
                 </p>
               </div>
               <strong className="service-price">EUR 79</strong>
@@ -154,22 +154,22 @@ function AboutPage() {
 
             <div className="contact-item">
               <div>
-                <h3>Turno Express</h3>
+                <h3>Turno Regular Bs.As</h3>
                 <p>
-                  Conseguimos el turno (la asignación de la cita) en un plazo estimado de 1 a 3 días en cualquier embajada (incluida la de Bs.). Tené en cuenta que la fecha del turno en sí suele ser aproximadamente 2 meses después de haber sido asignado. Ideal para quienes necesitan una respuesta rápida o tienen fechas límite próximas.
+                  Te conseguimos un turno en la embajada de Buenos Aires en un plazo estimado de 2 semanas.  Ideal para quienes buscan gestionar su trámite específicamente a través de la embajada de Buenos Aires.
                 </p>
               </div>
-              <strong className="service-price">EUR 199</strong>
+              <strong className="service-price">EUR 99</strong>
             </div>
 
             <div className="contact-item">
               <div>
-                <h3>Formulario Videx</h3>
+                <h3>Turno Express</h3>
                 <p>
-                  Te ayudamos a completar el formulario Videx, necesario para la mayoría de los trámites relacionados con Alemania.
+                  Conseguimos el turno (la asignación de la cita) en un plazo estimado de 1 a 3 días en cualquier embajada (incluida la de Buenos Aires). Recomendado para quienes necesitan una solución rápida o tienen fechas de viaje próximas.
                 </p>
               </div>
-              <strong className="service-price">EUR 20</strong>
+              <strong className="service-price">EUR 199</strong>
             </div>
 
             <div className="contact-item">
@@ -190,6 +190,16 @@ function AboutPage() {
                 </p>
               </div>
               <strong className="service-price">EUR 10</strong>
+            </div>
+
+            <div className="contact-item">
+              <div>
+                <h3>Formulario Videx</h3>
+                <p>
+                  Te ayudamos a completar el formulario Videx, necesario para la mayoría de los trámites relacionados con Alemania.
+                </p>
+              </div>
+              <strong className="service-price">EUR 20</strong>
             </div>
 
             <div className="contact-item">
@@ -442,8 +452,9 @@ function FormPage() {
                 onChange={handleChange}
                 required
               >
-                <option value="regular">Regular (EUR 119)</option>
-                <option value="express">Express (EUR 199)</option>
+                <option value="otras_embajadas">Turno Regular (EUR 79)</option>
+                <option value="buenos_aires_regular">Turno Regular Bs.As (EUR 99)</option>
+                <option value="buenos_aires_express">Turno Express (EUR 199)</option>
                 <option value="ninguno">Ninguno</option>
               </select>
             </label>

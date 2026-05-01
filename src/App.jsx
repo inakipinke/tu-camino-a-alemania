@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
+import Home from './Home.jsx';
 import logo from './logo.png';
 
 const initialForm = {
@@ -17,10 +18,24 @@ const initialForm = {
   todosDocumentos: false
 };
 
+const turnoOptions = [
+  'otras_embajadas',
+  'buenos_aires_regular',
+  'buenos_aires_express',
+  'ninguno'
+];
+
+function getTurnoFromSearch(search) {
+  const selectedTurno = new URLSearchParams(search).get('turno');
+
+  return turnoOptions.includes(selectedTurno) ? selectedTurno : initialForm.turno;
+}
+
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const isNavbarDark = isScrolled || isMobileMenuOpen;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { pathname } = useLocation();
+  const isActive = isScrolled || isMenuOpen;
 
   useEffect(() => {
     const onScroll = () => {
@@ -35,93 +50,57 @@ function Navbar() {
     };
   }, []);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+  const toggleMenu = () => {
+    setIsMenuOpen((open) => !open);
   };
 
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  const handleNavClick = (event, targetPath) => {
+    if (pathname === targetPath) {
+      event.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    closeMenu();
   };
 
   return (
-    <nav className={`navbar ${isNavbarDark ? 'navbar--scrolled' : ''}`}>
+    <nav className={`navbar ${isActive ? 'navbar--scrolled' : ''}`}>
       <div className="navContainer">
-        <Link to="/" className="navLogo" onClick={closeMobileMenu}>
+        <Link to="/" className="navLogo" onClick={(event) => handleNavClick(event, '/')}>
           <img src={logo} alt="tu camino" />
         </Link>
-        
-        {/* Desktop Navigation */}
         <div className="navLinks desktop-nav">
-          <Link to="/" className="navLink">Inicio</Link>
-          <Link to="/about" className="navLink">Servicios</Link>
-          <Link to="/requirements" className="navLink">Requisitos</Link>
-          <Link to="/contact" className="navLink">Contáctanos</Link>
-          <Link to="/form" className="navLink navLinkPrimary">Regístrate</Link>
+          <Link to="/" className="navLink" onClick={(event) => handleNavClick(event, '/')}>Inicio</Link>
+          <Link to="/about" className="navLink" onClick={(event) => handleNavClick(event, '/about')}>Servicios</Link>
+          <Link to="/requirements" className="navLink" onClick={(event) => handleNavClick(event, '/requirements')}>Requisitos</Link>
+          <Link to="/contact" className="navLink" onClick={(event) => handleNavClick(event, '/contact')}>Contáctanos</Link>
+          <Link to="/form" className="navLink navLinkPrimary" onClick={(event) => handleNavClick(event, '/form')}>Regístrate</Link>
         </div>
-
-        {/* Mobile Menu Button */}
-        <button 
-          className={`mobile-menu-btn ${isMobileMenuOpen ? 'open' : ''}`}
-          onClick={toggleMobileMenu}
+        <button
+          className={`mobile-menu-btn ${isMenuOpen ? 'open' : ''}`}
+          onClick={toggleMenu}
           aria-label="Toggle mobile menu"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span />
+          <span />
+          <span />
         </button>
-
-        {/* Mobile Navigation */}
-        <div className={`navLinks mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}>
-          <Link to="/" className="navLink" onClick={closeMobileMenu}>Inicio</Link>
-          <Link to="/about" className="navLink" onClick={closeMobileMenu}>Servicios</Link>
-          <Link to="/requirements" className="navLink" onClick={closeMobileMenu}>Requisitos</Link>
-          <Link to="/contact" className="navLink" onClick={closeMobileMenu}>Contáctanos</Link>
-          <Link to="/form" className="navLink navLinkPrimary" onClick={closeMobileMenu}>Regístrate</Link>
+        <div className={`navLinks mobile-nav ${isMenuOpen ? 'open' : ''}`}>
+          <Link to="/" className="navLink" onClick={(event) => handleNavClick(event, '/')}>Inicio</Link>
+          <Link to="/about" className="navLink" onClick={(event) => handleNavClick(event, '/about')}>Servicios</Link>
+          <Link to="/requirements" className="navLink" onClick={(event) => handleNavClick(event, '/requirements')}>Requisitos</Link>
+          <Link to="/contact" className="navLink" onClick={(event) => handleNavClick(event, '/contact')}>Contáctanos</Link>
+          <Link to="/form" className="navLink navLinkPrimary" onClick={(event) => handleNavClick(event, '/form')}>Regístrate</Link>
         </div>
       </div>
     </nav>
-  );
-}
-
-function HomePage() {
-  return (
-    <div className="page">
-      <Navbar />
-
-      <main>
-        <section className="card cardP">
-          <h2>Reserva tu turno para la Visa Working Holiday Alemana!</h2>
-
-          <p>
-            ¿Hace meses que intentás conseguir turno y nunca hay disponibilidad?
-            <br /><br />
-            No sos el único. Los turnos se liberan sin aviso y suelen agotarse en minutos, mientras miles de personas intentan todos los días sin éxito.
-          </p>
-
-          <p>
-            Con <strong>Tu camino a Alemania</strong> tenes la seguridad de conseguir tu turno sin tener que estar pegado a la página todo el día. Nuestro equipo trabaja activamente para conseguir turnos en todas las embajadas alemanas de latinoamerica, incluso cuando no hay disponibilidad visible.
-            <br /><br />
-            Mientras otros pierden horas refrescando la página, nosotros trabajamos activamente para conseguir tu cita.
-          </p>
-
-          <p>
-            ✔ Conseguimos turnos incluso cuando no hay disponibilidad visible
-            <br />
-            ✔ Ahorrá semanas (o meses) de intentos
-            <br />
-            ✔ Proceso simple, rápido y guiado
-          </p>
-
-          <p style={{ marginTop: '1.5rem' }}>
-            ⚠ Los turnos son limitados y la demanda es muy alta. Cada semana trabajamos con un número reducido de solicitudes.
-          </p>
-
-          <Link to="/about" className="primaryBtn">
-            Ver precios
-          </Link>
-        </section>
-      </main>
-    </div>
   );
 }
 
@@ -137,7 +116,17 @@ function AboutPage() {
           <p>
             <strong>Tu camino a Alemania</strong> nace con el objetivo de hacer que los procesos migratorios
             sean más simples, claros y accesibles. Sabemos que cada caso es distinto, por eso ofrecemos
-            asesoramiento personalizado adaptado a la situación de cada cliente. Trabajamos con todas las embajadas alemanas de latinoamerica. 📲 Seguinos en Instagram: <a className="serviceLink" href="https://www.instagram.com/camino_alemania2026/?hl=es" target="_blank" rel="noopener noreferrer">@camino_alemania2026</a> para tips, novedades y turnos disponibles.
+            asesoramiento personalizado adaptado a la situación de cada cliente. Trabajamos con todas las
+            embajadas alemanas de latinoamerica. 📲 Seguinos en Instagram:{' '}
+            <a
+              className="serviceLink"
+              href="https://www.instagram.com/camino_alemania2026/?hl=es"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @camino_alemania2026
+            </a>{' '}
+            para tips, novedades y turnos disponibles.
           </p>
 
           <h3>Nuestros servicios</h3>
@@ -146,7 +135,9 @@ function AboutPage() {
               <div>
                 <h3>Turno Regular</h3>
                 <p>
-                  Te conseguimos un turno en cualquier embajada alemana (excepto la de Buenos Aires) en un plazo estimado de 2 semanas. Ideal para quienes tienen flexibilidad en sus fechas de viaje y buscan una opción más económica.
+                  Te conseguimos un turno en cualquier embajada alemana (excepto la de Buenos Aires)
+                  en un plazo estimado de 2 semanas. Ideal para quienes tienen flexibilidad en sus
+                  fechas de viaje y buscan una opción más económica.
                 </p>
               </div>
               <strong className="service-price">EUR 79</strong>
@@ -156,7 +147,9 @@ function AboutPage() {
               <div>
                 <h3>Turno Regular Bs.As</h3>
                 <p>
-                  Te conseguimos un turno en la embajada de Buenos Aires en un plazo estimado de 2 semanas.  Ideal para quienes buscan gestionar su trámite específicamente a través de la embajada de Buenos Aires.
+                  Te conseguimos un turno en la embajada de Buenos Aires en un plazo estimado de
+                  2 semanas. Ideal para quienes buscan gestionar su trámite específicamente a
+                  través de la embajada de Buenos Aires.
                 </p>
               </div>
               <strong className="service-price">EUR 99</strong>
@@ -166,17 +159,20 @@ function AboutPage() {
               <div>
                 <h3>Turno Express</h3>
                 <p>
-                  Conseguimos el turno (la asignación de la cita) en un plazo estimado de 1 a 3 días en cualquier embajada (incluida la de Buenos Aires). Recomendado para quienes necesitan una solución rápida o tienen fechas de viaje próximas.
+                  Conseguimos el turno (la asignación de la cita) en un plazo estimado de 1 a
+                  3 días en cualquier embajada (incluida la de Buenos Aires). Recomendado para
+                  quienes necesitan una solución rápida o tienen fechas de viaje próximas.
                 </p>
               </div>
-              <strong className="service-price">EUR 199</strong>
+              <strong className="service-price">EUR 149</strong>
             </div>
 
             <div className="contact-item">
               <div>
                 <h3>Carta de motivación</h3>
                 <p>
-                  Te ayudamos a completar la carta de motivación, la cual es fundamental para explicar el propósito de tu viaje y demostrar tu interés genuino en Alemania.
+                  Te ayudamos a completar la carta de motivación, la cual es fundamental para
+                  explicar el propósito de tu viaje y demostrar tu interés genuino en Alemania.
                 </p>
               </div>
               <strong className="service-price">EUR 10</strong>
@@ -186,7 +182,9 @@ function AboutPage() {
               <div>
                 <h3>Currículum con Europass</h3>
                 <p>
-                  Corroboramos tu currículum vitae y lo adaptamos al formato Europass, reconocido internacionalmente, para que puedas presentar tu experiencia de manera clara y profesional en tus trámites migratorios hacia Alemania.
+                  Corroboramos tu currículum vitae y lo adaptamos al formato Europass, reconocido
+                  internacionalmente, para que puedas presentar tu experiencia de manera clara y
+                  profesional en tus trámites migratorios hacia Alemania.
                 </p>
               </div>
               <strong className="service-price">EUR 10</strong>
@@ -196,7 +194,8 @@ function AboutPage() {
               <div>
                 <h3>Formulario Videx</h3>
                 <p>
-                  Te ayudamos a completar el formulario Videx, necesario para la mayoría de los trámites relacionados con Alemania.
+                  Te ayudamos a completar el formulario Videx, necesario para la mayoría de los
+                  trámites relacionados con Alemania.
                 </p>
               </div>
               <strong className="service-price">EUR 20</strong>
@@ -206,7 +205,9 @@ function AboutPage() {
               <div>
                 <h3>Todos los documentos</h3>
                 <p>
-                  Asistencia completa con todos los documentos necesarios para tu trámite, incluyendo el formulario Videx, carta de motivación y currículum vitae en formato Europass, asegurando que tu solicitud esté completa y bien presentada.
+                  Asistencia completa con todos los documentos necesarios para tu trámite,
+                  incluyendo el formulario Videx, carta de motivación y currículum vitae en
+                  formato Europass, asegurando que tu solicitud esté completa y bien presentada.
                 </p>
               </div>
               <strong className="service-price">EUR 35</strong>
@@ -274,11 +275,23 @@ function RequirementsPage() {
 }
 
 function FormPage() {
-  const [form, setForm] = useState(initialForm);
+  const { search } = useLocation();
+  const [form, setForm] = useState(() => ({
+    ...initialForm,
+    turno: getTurnoFromSearch(search)
+  }));
   const [status, setStatus] = useState('');
+
+  useEffect(() => {
+    setForm((prev) => ({
+      ...prev,
+      turno: getTurnoFromSearch(search)
+    }));
+  }, [search]);
 
   const handleChange = (e) => {
     const { name, type, value, checked } = e.target;
+
     setForm((prev) => {
       if (type !== 'checkbox') {
         return {
@@ -310,22 +323,19 @@ function FormPage() {
     setStatus('Enviando...');
 
     try {
-      // Store form data in localStorage (backup)
       const submissions = JSON.parse(localStorage.getItem('formSubmissions') || '[]');
-      const newSubmission = {
+      const submission = {
         ...form,
         timestamp: new Date().toISOString()
       };
-      submissions.push(newSubmission);
+
+      submissions.push(submission);
       localStorage.setItem('formSubmissions', JSON.stringify(submissions));
 
-      // Send to Formspree for email notification
-      const FORMSPREE_ID = 'mjgpjqap';
-      
-      const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      const response = await fetch('https://formspree.io/f/mjgpjqap', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           firstName: form.firstName,
@@ -340,8 +350,8 @@ function FormPage() {
           cartaMotivacion: form.cartaMotivacion ? 'Sí' : 'No',
           curriculumEuropass: form.curriculumEuropass ? 'Sí' : 'No',
           todosDocumentos: form.todosDocumentos ? 'Sí' : 'No',
-          _replyto: form.email,
-        }),
+          _replyto: form.email
+        })
       });
 
       console.log('Formspree response status:', response.status);
@@ -352,7 +362,7 @@ function FormPage() {
       } else {
         setStatus('Error al enviar, contactanos directamente a nuestro correo');
       }
-      
+
       setForm(initialForm);
       setTimeout(() => setStatus(''), 5000);
     } catch (error) {
@@ -454,14 +464,13 @@ function FormPage() {
               >
                 <option value="otras_embajadas">Turno Regular (EUR 79)</option>
                 <option value="buenos_aires_regular">Turno Regular Bs.As (EUR 99)</option>
-                <option value="buenos_aires_express">Turno Express (EUR 199)</option>
+                <option value="buenos_aires_express">Turno Express (EUR 149)</option>
                 <option value="ninguno">Ninguno</option>
               </select>
             </label>
 
             <div className="checkboxGroup">
               <strong>Servicios adicionales</strong>
-
               <label className="checkboxLabel">
                 <input
                   type="checkbox"
@@ -471,7 +480,6 @@ function FormPage() {
                 />
                 Formulario Videx (EUR 20)
               </label>
-
               <label className="checkboxLabel">
                 <input
                   type="checkbox"
@@ -481,7 +489,6 @@ function FormPage() {
                 />
                 Carta de motivación (EUR 10)
               </label>
-
               <label className="checkboxLabel">
                 <input
                   type="checkbox"
@@ -491,7 +498,6 @@ function FormPage() {
                 />
                 Currículum con Europass (EUR 10)
               </label>
-
               <label className="checkboxLabel">
                 <input
                   type="checkbox"
@@ -503,9 +509,13 @@ function FormPage() {
               </label>
             </div>
 
-          <p style={{ marginTop: '1.25rem', marginBottom: 0 }}>
-            Te contactaremos en las próximas 48 horas hábiles para confirmar tu registro y brindarte los siguientes pasos. Si no recibes respuesta en ese plazo, por favor revisa tu carpeta de spam o contáctanos directamente a nuestro correo electrónico. ¡Gracias por confiar en nosotros!
-          </p>
+            <p style={{ marginTop: '1.25rem', marginBottom: 0 }}>
+              Te contactaremos en las próximas 48 horas hábiles para confirmar tu registro y
+              brindarte los siguientes pasos. Si no recibes respuesta en ese plazo, por favor
+              revisa tu carpeta de spam o contáctanos directamente a nuestro correo electrónico.
+              ¡Gracias por confiar en nosotros!
+            </p>
+
             <button
               type="submit"
               className="primaryBtn"
@@ -522,94 +532,15 @@ function FormPage() {
   );
 }
 
-function AdminPage() {
-  const [submissions, setSubmissions] = useState([]);
-
-  useEffect(() => {
-    const data = JSON.parse(localStorage.getItem('formSubmissions') || '[]');
-    setSubmissions(data);
-  }, []);
-
-  const handleDownload = () => {
-    const dataStr = JSON.stringify(submissions, null, 2);
-    const dataBlob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(dataBlob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `submissions_${new Date().toISOString().split('T')[0]}.json`;
-    link.click();
-    URL.revokeObjectURL(url);
-  };
-
-  const handleClear = () => {
-    if (window.confirm('¿Estás seguro de que quieres eliminar todos los envíos?')) {
-      localStorage.setItem('formSubmissions', '[]');
-      setSubmissions([]);
-    }
-  };
-
-  return (
-    <div className="page">
-      <Navbar />
-      <main>
-        <section className="card cardR">
-          <h2>📋 Panel de Envíos</h2>
-          <p>Total de registros: <strong>{submissions.length}</strong></p>
-
-          {submissions.length === 0 ? (
-            <p>No hay envíos registrados aún.</p>
-          ) : (
-            <>
-              <div style={{ overflowX: 'auto', marginBottom: '1.5rem' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
-                  <thead>
-                    <tr style={{ borderBottom: '2px solid #333' }}>
-                      <th style={{ padding: '0.5rem', textAlign: 'left' }}>Nombre</th>
-                      <th style={{ padding: '0.5rem', textAlign: 'left' }}>Email</th>
-                      <th style={{ padding: '0.5rem', textAlign: 'left' }}>Teléfono</th>
-                      <th style={{ padding: '0.5rem', textAlign: 'left' }}>Pasaporte</th>
-                      <th style={{ padding: '0.5rem', textAlign: 'left' }}>Fecha de Envío</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {submissions.map((sub, idx) => (
-                      <tr key={idx} style={{ borderBottom: '1px solid #ddd' }}>
-                        <td style={{ padding: '0.5rem' }}>{sub.firstName} {sub.lastName}</td>
-                        <td style={{ padding: '0.5rem' }}>{sub.email}</td>
-                        <td style={{ padding: '0.5rem' }}>{sub.phone}</td>
-                        <td style={{ padding: '0.5rem' }}>{sub.passport}</td>
-                        <td style={{ padding: '0.5rem' }}>{new Date(sub.timestamp).toLocaleString()}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-
-              <div style={{ display: 'flex', gap: '1rem' }}>
-                <button onClick={handleDownload} className="primaryBtn">
-                  💾 Descargar JSON
-                </button>
-                <button onClick={handleClear} className="primaryBtn" style={{ backgroundColor: '#d9534f' }}>
-                  🗑️ Limpiar Todo
-                </button>
-              </div>
-            </>
-          )}
-        </section>
-      </main>
-    </div>
-  );
-}
-
 function ContactPage() {
-  const [activeButton, setActiveButton] = useState(null);
+  const [copied, setCopied] = useState(null);
 
-  const handleCopy = async (text, buttonId) => {
+  const handleCopy = async (text, type) => {
     try {
       await navigator.clipboard.writeText(text);
-      setActiveButton(buttonId);
+      setCopied(type);
       setTimeout(() => {
-        setActiveButton(null);
+        setCopied(null);
       }, 2000);
     } catch (error) {
       console.error('Error copying text:', error);
@@ -645,10 +576,16 @@ function ContactPage() {
                   Correo Electrónico
                 </h3>
                 <p>
-                  <a className="serviceLink" href="mailto:gestoriaturnosytramites@gmail.com">gestoriaturnosytramites@gmail.com</a>
+                  <a className="serviceLink" href="mailto:gestoriaturnosytramites@gmail.com">
+                    gestoriaturnosytramites@gmail.com
+                  </a>
                 </p>
               </div>
-              <button className={`copyBtn ${activeButton === 'email' ? 'active' : ''}`} onClick={() => handleCopy('gestoriaturnosytramites@gmail.com', 'email')} aria-label="Copiar correo electrónico">
+              <button
+                className={`copyBtn ${copied === 'email' ? 'active' : ''}`}
+                onClick={() => handleCopy('gestoriaturnosytramites@gmail.com', 'email')}
+                aria-label="Copiar correo electrónico"
+              >
                 <span>Copiar</span>
                 <span>✓</span>
               </button>
@@ -665,10 +602,21 @@ function ContactPage() {
                   Whatsapp
                 </h3>
                 <p>
-                  <a className="serviceLink" href="https://wa.me/543518764765" target="_blank" rel="noopener noreferrer">+54 351 876-4765</a>
+                  <a
+                    className="serviceLink"
+                    href="https://wa.me/543518764765"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    +54 351 876-4765
+                  </a>
                 </p>
               </div>
-              <button className={`copyBtn ${activeButton === 'phone' ? 'active' : ''}`} onClick={() => handleCopy('+54 351 876-4765', 'phone')} aria-label="Copiar teléfono">
+              <button
+                className={`copyBtn ${copied === 'phone' ? 'active' : ''}`}
+                onClick={() => handleCopy('+54 351 876-4765', 'phone')}
+                aria-label="Copiar teléfono"
+              >
                 <span>Copiar</span>
                 <span>✓</span>
               </button>
@@ -685,12 +633,21 @@ function ContactPage() {
                   Instagram
                 </h3>
                 <p>
-                  <a className="serviceLink" href="https://www.instagram.com/camino_alemania2026/?hl=es" target="_blank" rel="noopener noreferrer">
+                  <a
+                    className="serviceLink"
+                    href="https://www.instagram.com/camino_alemania2026/?hl=es"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     @camino_alemania2026
                   </a>
                 </p>
               </div>
-              <button className={`copyBtn ${activeButton === 'instagram' ? 'active' : ''}`} onClick={() => handleCopy('https://www.instagram.com/camino_alemania2026/?hl=es', 'instagram')} aria-label="Copiar Instagram">
+              <button
+                className={`copyBtn ${copied === 'instagram' ? 'active' : ''}`}
+                onClick={() => handleCopy('https://www.instagram.com/camino_alemania2026/?hl=es', 'instagram')}
+                aria-label="Copiar Instagram"
+              >
                 <span>Copiar</span>
                 <span>✓</span>
               </button>
@@ -721,12 +678,11 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/requirements" element={<RequirementsPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/form" element={<FormPage />} />
-        <Route path="/admin" element={<AdminPage />} />
       </Routes>
     </BrowserRouter>
   );

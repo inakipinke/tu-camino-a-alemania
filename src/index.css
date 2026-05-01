@@ -12,20 +12,22 @@
   box-sizing: border-box;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
   min-height: 100%;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   min-height: 100vh;
   background-color: #111;
-
   color: var(--text);
 }
 
@@ -58,20 +60,17 @@ body {
   }
 }
 
-/* ================= NAVBAR ================= */
-
 .navbar {
   position: sticky;
   top: 0;
   z-index: 100;
-  /*background: rgba(0, 0, 0, 0.18);*/
-  /*backdrop-filter: blur(4px);*/
   transition: background-color .35s ease, box-shadow .35s ease, backdrop-filter .35s ease;
 }
 
 .navbar--scrolled {
   background: rgba(0, 0, 0, 0.45);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
 
@@ -109,7 +108,6 @@ body {
   margin-right: 20px;
 }
 
-/* Mobile Menu Button (Hamburger) */
 .mobile-menu-btn {
   display: none;
   flex-direction: column;
@@ -145,12 +143,10 @@ body {
   transform: rotate(-45deg) translate(4px, -4px);
 }
 
-/* Desktop Navigation */
 .desktop-nav {
   display: flex;
 }
 
-/* Mobile Navigation */
 .mobile-nav {
   display: none;
   position: absolute;
@@ -159,6 +155,7 @@ body {
   right: 0;
   margin-right: 0;
   background: rgba(0, 0, 0, 0.9);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   flex-direction: column;
   padding: 1rem 0;
@@ -168,7 +165,6 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
-  
 }
 
 .mobile-nav.open {
@@ -248,8 +244,8 @@ body {
 }
 
 .contact-item h3 {
-  margin: 0 0 0.4rem 0;
-  color: #000000;
+  margin: 0 0 0.4rem;
+  color: black;
 }
 
 .contact-icon {
@@ -260,14 +256,14 @@ body {
 
 .contact-item p {
   margin: 0;
-  color: #000000;
+  color: black;
   max-width: 100%;
   overflow-wrap: anywhere;
   word-break: break-word;
 }
 
 .contact-item a {
-  color: #000000;
+  color: black;
   text-decoration: none;
   display: inline-block;
   max-width: 100%;
@@ -293,11 +289,11 @@ body {
   background: rgba(255, 255, 255, 0.6);
   font-size: 0.95rem;
   line-height: 1;
-  color: #000000;
+  color: black;
 }
 
 .copyBtn {
-  background-color: #7676762c;
+  background-color: rgba(118, 118, 118, 0.17);
   width: 100px;
   height: 36px;
   border: none;
@@ -305,17 +301,17 @@ body {
   font-weight: 600;
   cursor: pointer;
   overflow: hidden;
-  transition: all 500ms ease;
+  transition: all 0.5s ease;
   position: relative;
 }
 
 .copyBtn span:first-child {
-  color: #000000;
+  color: black;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: all 500ms ease;
+  transition: all 0.5s ease;
   white-space: nowrap;
 }
 
@@ -326,9 +322,9 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, 100%);
-  transition: all 500ms ease;
+  transition: all 0.5s ease;
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .copyBtn.active {
@@ -347,19 +343,12 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* ================= PAGE ================= */
-
 .page {
   min-height: 100vh;
-
-  /* ✅ IMPORTANT: allow background to show */
   background: transparent;
-
   display: flex;
   flex-direction: column;
 }
-
-/* ================= HERO ================= */
 
 .hero {
   background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(26,26,26,0.9));
@@ -380,7 +369,6 @@ body {
   color: #ddd;
 }
 
-/* hero buttons */
 .heroLinks {
   margin-top: 1.5rem;
   display: flex;
@@ -404,8 +392,6 @@ body {
   background: #ffd700;
 }
 
-/* ================= MAIN ================= */
-
 main {
   display: flex;
   justify-content: center;
@@ -417,30 +403,19 @@ main {
 .card {
   width: 100%;
   max-width: 650px;
-
-  /* ✅ semi-transparent for glass effect */
   background: rgba(255, 255, 255, 0.86);
-
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 16px;
   padding: 2.5rem;
   box-shadow: -10px 10px 40px rgba(0, 0, 0, 0.39);
-
   display: flex;
   flex-direction: column;
 }
 
 .cardR {
-    max-width: 900px;
-}
-
-.cardF {
-    
-}
-
-.cardP {
-
+  max-width: 900px;
 }
 
 .cardP .primaryBtn {
@@ -456,9 +431,6 @@ main {
 li {
   margin-bottom: 0.75rem;
 }
-
-
-/* ================= FORM ================= */
 
 .form {
   display: grid;
@@ -480,6 +452,7 @@ li {
 
 .form input[type="date"] {
   -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
 }
 
@@ -489,15 +462,11 @@ li {
   border-color: var(--g-red);
 }
 
-/* ================= BUTTON ================= */
-
-
 .primaryBtn {
   display: block;
-  width: fit-content;      /* keeps button size based on content */
-  margin: 0.5rem auto 0 auto;     /* centers horizontally and push to bottom when possible */
+  width: fit-content;
+  margin: 0.5rem auto 0 auto;
   margin-top: auto;
-
   background: linear-gradient(90deg, var(--g-red), #cc0000);
   color: white;
   border: 0;
@@ -540,14 +509,10 @@ label {
   margin-top: 0;
 }
 
-/* ================= MOBILE RESPONSIVE ================= */
-
 @media (max-width: 768px) {
-  .navbar--scrolled {
-    backdrop-filter: none;
-  }
-
+  .navbar--scrolled,
   .card {
+    -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
 
@@ -571,8 +536,6 @@ label {
     height: 100px;
   }
 }
-
-/* ================= MOBILE ================= */
 
 @media (max-width: 600px) {
   .navLinks {
@@ -624,5 +587,3 @@ label {
     align-self: center;
   }
 }
-
-
